@@ -33,7 +33,7 @@ const galleryImages = [
   },
   {
     id: 5,
-    src: '/images/shrimp-poboy.jpg',
+    src: '/images/crawfish-poboy.jpg',
     alt: 'Crispy shrimp po-boy sandwich',
     caption: 'Shrimp Po-Boy',
   },

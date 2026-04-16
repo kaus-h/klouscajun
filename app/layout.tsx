@@ -128,12 +128,7 @@ export default function RootLayout({
                   opens: '10:30',
                   closes: '20:00',
                 },
-                {
-                  '@type': 'OpeningHoursSpecification',
-                  dayOfWeek: ['Friday', 'Saturday'],
-                  opens: '11:00',
-                  closes: '17:30',
-                },
+                
               ],
               sameAs: [],
               hasMenu: 'https://klouscajun.com/menu',

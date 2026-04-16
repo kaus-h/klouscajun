@@ -20,7 +20,7 @@ const upcomingEvents = [
   },
   {
     id: 2,
-    name: 'Hardy Dr Location',
+    name: 'University Dr Location',
     address: '1328 W University Dr #104, Tempe',
     date: 'Every Other Saturday',
     time: '10:30 AM - 10:00 PM',

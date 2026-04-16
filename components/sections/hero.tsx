@@ -66,7 +66,7 @@ export function Hero() {
                   Pull up for lunch, dinner, or a snowball stop.
                 </h2>
                 <p className="type-meta text-charcoal/70 mt-2">
-                  Hardy Dr. in Tempe anchors the week, with Saturday pop-ups and rotating menu
+                  University Dr. in Tempe anchors the week, with Saturday pop-ups and rotating menu
                   favorites worth calling ahead for.
                 </p>
               </div>

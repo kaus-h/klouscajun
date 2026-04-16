@@ -87,7 +87,7 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-2xl">
                   <Image
-                    src="/images/shrimp-poboy.jpg"
+                    src="/images/crawfish-poboy.jpg"
                     alt="Authentic shrimp po-boy from K.Lou's Cajun Shack"
                     fill
                     className="object-cover"

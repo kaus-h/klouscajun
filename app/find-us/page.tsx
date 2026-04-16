@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const locations = [
   {
     id: 1,
-    name: 'Hardy Dr Location',
+    name: 'University Dr Location',
     address: '1328 W University Dr #104',
     city: 'Tempe, AZ 85281',
     status: 'Primary Location',
@@ -43,8 +43,8 @@ const locations = [
 ]
 
 const operatingHours = [
-  { days: 'Monday - Thursday', hours: '10:30 AM - 5:30 PM', location: 'Hardy Dr' },
-  { days: 'Friday - Saturday', hours: '11:00 AM - 5:30 PM', location: 'Hardy Dr & Yilo' },
+  { days: 'Monday - Thursday', hours: '10:30 AM - 5:30 PM', location: 'University Dr' },
+  { days: 'Friday - Saturday', hours: '11:00 AM - 5:30 PM', location: 'University Dr & Yilo' },
   { days: 'Sunday', hours: 'Closed', location: '' },
 ]
 
@@ -107,7 +107,7 @@ export default function FindUsPage() {
                   <div className="border-t border-charcoal/15 pt-4">
                     <p className="type-kicker text-cajun-red/80">Current anchor</p>
                     <p className="type-card-title mt-2 text-charcoal">
-                      Hardy Dr. in Tempe is the main reference point for weekday service.
+                      University Dr. in Tempe is the main reference point for weekday service.
                     </p>
                   </div>
                   <div className="border-t border-charcoal/15 pt-4">

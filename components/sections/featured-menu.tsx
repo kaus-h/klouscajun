@@ -19,7 +19,7 @@ const featuredItems = [
   {
     id: 3,
     name: 'Shrimp Po-Boy',
-    image: '/images/shrimp-poboy.jpg',
+    image: '/images/crawfish-poboy.jpg',
     description: 'Crispy fried shrimp on fresh French bread with all the fixings',
   },
 ]
