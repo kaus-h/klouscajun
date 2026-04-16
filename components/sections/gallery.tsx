@@ -74,17 +74,17 @@ export function Gallery() {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-cream-dark">
+    <section className="py-16 md:py-24 bg-cream">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <p className="text-gold font-display text-sm md:text-base tracking-wider mb-2">
-            EAT WITH YOUR EYES
+        <div className="mb-12">
+          <p className="text-cajun-red font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
+            Eat With Your Eyes
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-charcoal mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-charcoal mb-4 leading-tight">
             Photo Gallery
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          <p className="text-charcoal max-w-xl">
             Take a look at our authentic Cajun dishes and catering setups.
           </p>
         </div>

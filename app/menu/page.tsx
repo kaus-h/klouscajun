@@ -7,7 +7,6 @@ import { Footer } from '@/components/footer'
 import { StickyCTABar } from '@/components/sticky-cta-bar'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 
 export const metadata: Metadata = {
   title: 'Menu',
@@ -68,7 +67,7 @@ export default function MenuPage() {
   return (
     <>
       <Navigation />
-      <main className="pt-16 md:pt-20 pb-20 lg:pb-0">
+      <main className="pb-20 lg:pb-0">
         {/* Hero Section */}
         <section className="relative py-16 md:py-24 bg-charcoal text-cream overflow-hidden">
           <div className="absolute inset-0 opacity-20">
@@ -80,14 +79,14 @@ export default function MenuPage() {
               priority
             />
           </div>
-          <div className="relative container mx-auto px-4 text-center">
-            <p className="text-gold font-display text-sm md:text-base tracking-wider mb-2">
-              TASTE THE BAYOU
+          <div className="relative container mx-auto px-4">
+            <p className="text-gold font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
+              Taste the Bayou
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4">
               Our Menu
             </h1>
-            <p className="text-cream/80 max-w-2xl mx-auto text-lg">
+            <p className="text-cream/80 max-w-2xl text-lg">
               Authentic Louisiana Cajun & Creole cuisine made with love and served 
               with real Southern hospitality.
             </p>
@@ -101,7 +100,7 @@ export default function MenuPage() {
         </section>
 
         {/* Menu Disclaimer */}
-        <section className="bg-cream-dark py-4">
+        <section className="bg-cream py-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center justify-center gap-3 text-charcoal/70 text-sm">
               <AlertCircle className="h-4 w-4 flex-shrink-0" />
@@ -113,16 +112,19 @@ export default function MenuPage() {
         {/* Featured Plates Section */}
         <section className="py-16 md:py-20 bg-cream">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-charcoal mb-2">
+            <div className="mb-12">
+              <p className="text-cajun-red font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
                 Featured Plates
+              </p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-charcoal mb-2">
+                Our signature dishes
               </h2>
-              <p className="text-muted-foreground">Our signature dishes that keep customers coming back</p>
+              <p className="text-charcoal/70">The plates that keep customers coming back</p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl">
               {featuredPlates.map((item) => (
-                <Card key={item.id} className="overflow-hidden bg-white border-0 shadow-lg">
+                <Card key={item.id} className="overflow-hidden bg-white border-0 shadow-md">
                   <div className="relative aspect-[4/3]">
                     <Image
                       src={item.image}
@@ -138,24 +140,24 @@ export default function MenuPage() {
                   <CardContent className="p-6">
                     <div className="flex flex-wrap gap-2 mb-3">
                       {item.tags.map((tag) => (
-                        <Badge
+                        <span
                           key={tag}
-                          className={
+                          className={`px-2 py-0.5 text-xs font-semibold rounded ${
                             tag === 'Signature'
                               ? 'bg-cajun-red text-white'
                               : tag === 'Seasonal'
                               ? 'bg-charcoal text-white'
                               : 'bg-gold text-charcoal'
-                          }
+                          }`}
                         >
                           {tag}
-                        </Badge>
+                        </span>
                       ))}
                     </div>
                     <h3 className="text-xl font-serif font-bold text-charcoal mb-2">
                       {item.name}
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
+                    <p className="text-charcoal/70 text-sm leading-relaxed">
                       {item.description}
                     </p>
                   </CardContent>
@@ -168,15 +170,15 @@ export default function MenuPage() {
         {/* Snowballs Section */}
         <section className="py-16 md:py-20 bg-charcoal text-cream">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-10">
-                <p className="text-gold font-display text-sm tracking-wider mb-2">
-                  FROZEN TREATS
+            <div className="max-w-4xl">
+              <div className="mb-10">
+                <p className="text-gold font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
+                  Frozen Treats
                 </p>
                 <h2 className="text-3xl md:text-4xl font-serif font-bold mb-2">
                   New Orleans Style Snowballs
                 </h2>
-                <div className="flex items-center justify-center gap-4 mt-4">
+                <div className="flex items-center gap-4 mt-4">
                   <span className="text-3xl font-bold text-gold">$6</span>
                   <span className="text-cream/70">1 flavor included | Add-on flavors +$2</span>
                 </div>
@@ -195,13 +197,12 @@ export default function MenuPage() {
                   <h3 className="text-lg font-semibold text-gold mb-4">Available Flavors:</h3>
                   <div className="flex flex-wrap gap-2">
                     {snowballFlavors.map((flavor) => (
-                      <Badge
+                      <span
                         key={flavor}
-                        variant="outline"
-                        className="border-cream/30 text-cream hover:bg-cream/10 cursor-default"
+                        className="px-3 py-1 border border-cream/30 text-cream text-sm rounded-full"
                       >
                         {flavor}
-                      </Badge>
+                      </span>
                     ))}
                   </div>
                 </CardContent>
@@ -213,19 +214,19 @@ export default function MenuPage() {
         {/* Drinks Section */}
         <section className="py-16 md:py-20 bg-cream">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-10">
+            <div className="max-w-4xl">
+              <div className="mb-10">
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-charcoal mb-2">
                   Drinks
                 </h2>
               </div>
 
-              <div className="bg-white rounded-lg shadow-md p-6">
+              <div className="bg-white rounded-lg shadow-sm p-6">
                 {drinks.map((item) => (
                   <div key={item.id} className="flex items-center justify-between">
                     <div>
                       <h3 className="text-lg font-semibold text-charcoal">{item.name}</h3>
-                      <p className="text-muted-foreground text-sm">{item.description}</p>
+                      <p className="text-charcoal/70 text-sm">{item.description}</p>
                     </div>
                     <span className="text-xl font-bold text-cajun-red">${item.price}</span>
                   </div>
@@ -236,20 +237,20 @@ export default function MenuPage() {
         </section>
 
         {/* Also Available Section */}
-        <section className="py-16 md:py-20 bg-cream-dark">
+        <section className="py-16 md:py-20 bg-white">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="max-w-4xl">
               <h2 className="text-2xl md:text-3xl font-serif font-bold text-charcoal mb-4">
                 Also Seen at Pop-Ups & Catering
               </h2>
-              <p className="text-muted-foreground mb-8">
+              <p className="text-charcoal/70 mb-8">
                 We often feature these items at events and catering. Ask about availability!
               </p>
-              <div className="flex flex-wrap justify-center gap-3">
+              <div className="flex flex-wrap gap-3">
                 {additionalItems.map((item) => (
                   <span
                     key={item}
-                    className="px-4 py-2 bg-white rounded-full text-charcoal font-medium shadow-sm"
+                    className="px-4 py-2 bg-cream rounded-full text-charcoal font-medium"
                   >
                     {item}
                   </span>
@@ -261,33 +262,38 @@ export default function MenuPage() {
 
         {/* CTA Section */}
         <section className="py-16 md:py-20 bg-cajun-red text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-              Ready to Order?
-            </h2>
-            <p className="text-white/90 max-w-xl mx-auto mb-8">
-              Visit us at our current location or call ahead for large orders. 
-              Planning an event? Let us cater your next celebration!
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-white text-cajun-red hover:bg-cream font-semibold"
-              >
-                <Link href="/catering">Book Catering</Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-cajun-red"
-              >
-                <a href="tel:+16025968036" className="flex items-center gap-2">
-                  <Phone className="h-5 w-5" />
-                  Call (602) 596-8036
-                </a>
-              </Button>
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl">
+              <p className="text-white/80 font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
+                Ready to Order?
+              </p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+                Visit us or book catering for your next event
+              </h2>
+              <p className="text-white/90 mb-8">
+                Visit us at our current location or call ahead for large orders. 
+                Planning an event? Let us cater your next celebration!
+              </p>
+              <div className="flex flex-col sm:flex-row items-start gap-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gold hover:bg-gold-light text-charcoal font-semibold rounded-full"
+                >
+                  <Link href="/catering">Book Catering</Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-white text-white hover:bg-white hover:text-cajun-red rounded-full"
+                >
+                  <a href="tel:+16025968036" className="flex items-center gap-2">
+                    <Phone className="h-5 w-5" />
+                    Call (602) 596-8036
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </section>

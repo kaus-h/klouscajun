@@ -1,50 +1,39 @@
 import Link from 'next/link'
-import { Star, Quote } from 'lucide-react'
+import { Star } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
 
 const testimonials = [
   {
     id: 1,
-    name: 'Marcus T.',
+    name: 'Sajani J.',
+    location: 'Henderson, NV',
     rating: 5,
-    content: "Best Cajun food I've had outside of Louisiana! The crawfish was perfectly seasoned and the portions were generous. Roderick and his team are incredibly friendly and professional.",
-    date: '2 months ago',
+    content: "Had Jambalaya catered for a party. Delivery was early, which was great! Food was delicious, everybody was going back for seconds and thirds. The communication was phenomenal. He made a jambalaya just how we wanted it. Prices are very fair as well.",
+    date: 'Mar 20, 2025',
   },
   {
     id: 2,
-    name: 'Jennifer R.',
+    name: 'LaNesa M.',
+    location: 'Phoenix, AZ',
     rating: 5,
-    content: 'We hired them for our graduation party and they exceeded all expectations. Food arrived early, stayed hot, and our guests went back for seconds and thirds. Amazing communication throughout!',
-    date: '1 month ago',
+    content: 'Good food and great service. The catfish is yummy and the cabbage hit the spot. Definitely coming back!',
+    date: 'May 20, 2024',
   },
   {
     id: 3,
-    name: 'David & Lisa M.',
+    name: 'Jamie S.',
+    location: 'Hemet, CA',
     rating: 5,
-    content: 'The fried gator was incredible - crispy on the outside, tender inside. The beignets reminded us of our trip to New Orleans. Finally, real Cajun food in Phoenix!',
-    date: '3 weeks ago',
+    content: "The food is incredible. It's hard to find Cajun food in Phoenix and even more difficult to find good Cajun food in the west. The owner is amazingly kind and welcoming. This is a great family business.",
+    date: 'Jan 5, 2024',
   },
   {
     id: 4,
-    name: 'Tamika W.',
+    name: 'Karen J.',
+    location: 'City of Commerce, CA',
     rating: 5,
-    content: "Can't say enough good things about this business. Fair prices, authentic flavors, and the owner genuinely cares about his customers. The crawfish boil was unforgettable.",
-    date: '1 month ago',
-  },
-  {
-    id: 5,
-    name: 'Robert J.',
-    rating: 5,
-    content: 'Catered our corporate event and everyone was impressed. Professional setup, delicious food, and spotless cleanup. The jambalaya was the star of the show!',
-    date: '2 weeks ago',
-  },
-  {
-    id: 6,
-    name: 'Angela S.',
-    rating: 5,
-    content: "Hard to find good Cajun food in Arizona, but K.Lou's delivers the real deal. The catfish was perfectly fried and the potato salad was homemade perfection.",
-    date: '3 months ago',
+    content: "Easily the best Cajun food I've had in valley! 100% recommend, they're super friendly and attentive! Will definitely be back for more!",
+    date: 'Mar 31, 2023',
   },
 ]
 
@@ -55,7 +44,7 @@ function StarRating({ rating }: { rating: number }) {
         <Star
           key={i}
           className={`h-4 w-4 ${
-            i < rating ? 'fill-gold text-gold' : 'fill-gray-200 text-gray-200'
+            i < rating ? 'fill-[#FF3B30] text-[#FF3B30]' : 'fill-gray-200 text-gray-200'
           }`}
         />
       ))}
@@ -64,73 +53,74 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export function Testimonials() {
-  const averageRating = 4.9
-  const totalReviews = testimonials.length
-
   return (
-    <section className="py-16 md:py-24 bg-charcoal text-cream">
+    <section className="py-16 md:py-24 bg-cream">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <p className="text-gold font-display text-sm md:text-base tracking-wider mb-2">
-            WHAT OUR CUSTOMERS SAY
+        <div className="mb-12">
+          <p className="text-cajun-red font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
+            What Customers Are Saying
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-4">
-            Reviews & Testimonials
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-charcoal mb-4 leading-tight max-w-2xl">
+            Real reviews from real customers
           </h2>
           
-          {/* Overall Rating */}
-          <div className="flex items-center justify-center gap-4 mt-6">
-            <div className="flex gap-1">
+          {/* Overall Rating from Yelp */}
+          <div className="flex items-center gap-4 mt-6">
+            <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
                   className={`h-6 w-6 ${
-                    i < Math.floor(averageRating)
-                      ? 'fill-gold text-gold'
-                      : 'fill-gray-500 text-gray-500'
+                    i < 4.5
+                      ? 'fill-[#FF3B30] text-[#FF3B30]'
+                      : i < 5 ? 'fill-[#FF3B30]/50 text-[#FF3B30]/50' : 'fill-gray-300 text-gray-300'
                   }`}
                 />
               ))}
             </div>
-            <span className="text-2xl font-bold text-gold">{averageRating}</span>
-            <span className="text-cream/70">({totalReviews}+ reviews)</span>
+            <span className="text-charcoal/70 text-sm">4.5 stars on Yelp</span>
           </div>
         </div>
 
-        {/* Testimonial Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Testimonial Cards - Horizontal Scroll on Mobile */}
+        <div className="flex gap-6 overflow-x-auto pb-4 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 scrollbar-hide">
           {testimonials.map((testimonial) => (
-            <Card
+            <div
               key={testimonial.id}
-              className="bg-charcoal-light border-charcoal-light hover:border-gold/30 transition-colors"
+              className="flex-shrink-0 w-[300px] md:w-auto bg-white rounded-lg p-6 shadow-sm border border-charcoal/5"
             >
-              <CardContent className="p-6">
-                <Quote className="h-8 w-8 text-gold/30 mb-4" />
-                
-                <p className="text-cream/90 leading-relaxed mb-6">
-                  &ldquo;{testimonial.content}&rdquo;
-                </p>
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-semibold text-cream">{testimonial.name}</p>
-                    <p className="text-sm text-cream/50">{testimonial.date}</p>
-                  </div>
-                  <StarRating rating={testimonial.rating} />
+              {/* Header */}
+              <div className="flex items-start gap-3 mb-4">
+                <div className="w-10 h-10 bg-charcoal/10 rounded-full flex items-center justify-center text-charcoal font-semibold">
+                  {testimonial.name.charAt(0)}
                 </div>
-              </CardContent>
-            </Card>
+                <div>
+                  <p className="font-semibold text-charcoal">{testimonial.name}</p>
+                  <p className="text-xs text-charcoal/50">{testimonial.location}</p>
+                </div>
+              </div>
+
+              {/* Rating & Date */}
+              <div className="flex items-center gap-2 mb-3">
+                <StarRating rating={testimonial.rating} />
+                <span className="text-xs text-charcoal/50">{testimonial.date}</span>
+              </div>
+              
+              {/* Content */}
+              <p className="text-charcoal text-sm leading-relaxed">
+                {testimonial.content}
+              </p>
+            </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
+        <div className="mt-10">
           <Button
             asChild
             variant="outline"
-            size="lg"
-            className="border-2 border-cream text-cream hover:bg-cream hover:text-charcoal"
+            className="border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-cream rounded-full"
           >
             <Link href="/reviews">Read More Reviews</Link>
           </Button>

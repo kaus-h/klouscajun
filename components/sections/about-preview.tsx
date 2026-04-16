@@ -5,20 +5,19 @@ import { Button } from '@/components/ui/button'
 
 export function AboutPreview() {
   return (
-    <section className="py-16 md:py-24 bg-cream">
+    <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
           <div>
-            <p className="text-gold font-display text-sm md:text-base tracking-wider mb-2">
-              OUR STORY
+            <p className="text-cajun-red font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
+              Our Story
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-charcoal mb-6">
-              30 Years of{' '}
-              <span className="text-cajun-red">Louisiana Flavor</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-charcoal mb-6 leading-tight">
+              30 years of Louisiana flavor, now in Arizona
             </h2>
             
-            <div className="space-y-4 text-charcoal/80 leading-relaxed">
+            <div className="space-y-4 text-charcoal leading-relaxed">
               <p>
                 K.Lou&apos;s Cajun Shack & Catering was born from a deep love of authentic 
                 Louisiana cuisine and a passion for bringing that flavor to Arizona. Owner 
@@ -31,44 +30,43 @@ export function AboutPreview() {
                 communities. We believe in using quality ingredients, generous portions, 
                 and treating every customer like family.
               </p>
-              <p>
-                As a Black-owned, family-run business, we take pride in every dish we 
-                serve. Whether you&apos;re stopping by our pop-up for lunch or hiring us 
-                for your next big event, you&apos;ll taste the difference that passion 
-                and experience make.
-              </p>
             </div>
 
-            <div className="mt-8">
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-2 border-cajun-red text-cajun-red hover:bg-cajun-red hover:text-white"
-              >
-                <Link href="/about" className="flex items-center gap-2">
-                  Learn Our Full Story
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
+            {/* Badges */}
+            <div className="flex flex-wrap gap-3 mt-6 mb-8">
+              <span className="px-4 py-2 bg-cajun-red/10 text-cajun-red text-sm font-medium rounded-full">
+                Black-owned
+              </span>
+              <span className="px-4 py-2 bg-cajun-red/10 text-cajun-red text-sm font-medium rounded-full">
+                Family-run
+              </span>
+              <span className="px-4 py-2 bg-cajun-red/10 text-cajun-red text-sm font-medium rounded-full">
+                30+ Years Experience
+              </span>
             </div>
+
+            <Button
+              asChild
+              variant="outline"
+              className="border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-cream rounded-full"
+            >
+              <Link href="/about" className="flex items-center gap-2">
+                Learn Our Full Story
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
           </div>
 
           {/* Image */}
           <div className="relative">
-            <div className="relative aspect-square rounded-lg overflow-hidden shadow-2xl">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-2xl">
               <Image
-                src="/images/shrimp-poboy.jpg"
-                alt="Authentic Cajun shrimp po-boy from K.Lou's"
+                src="/images/beignets.jpg"
+                alt="Fresh beignets from K.Lou's Cajun Shack"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-            </div>
-            {/* Decorative Element */}
-            <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-cajun-red text-white p-4 md:p-6 rounded-lg shadow-xl">
-              <p className="font-display text-lg md:text-xl">Family-Run</p>
-              <p className="text-sm opacity-90">Since Day One</p>
             </div>
           </div>
         </div>

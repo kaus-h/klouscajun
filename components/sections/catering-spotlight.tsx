@@ -1,15 +1,15 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { PartyPopper, GraduationCap, Briefcase, Users, Star, Calendar } from 'lucide-react'
+import { Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
-const eventTypes = [
-  { icon: PartyPopper, label: 'Private Parties' },
-  { icon: GraduationCap, label: 'Graduations' },
-  { icon: Briefcase, label: 'Corporate Events' },
-  { icon: Users, label: 'Family Gatherings' },
-  { icon: Star, label: 'Crawfish Boils' },
-  { icon: Calendar, label: 'Community Events' },
+const cateringFeatures = [
+  'Private parties & celebrations',
+  'Graduation parties',
+  'Corporate lunches & events',
+  'Family gatherings',
+  'Seasonal crawfish boils',
+  'Community events',
 ]
 
 export function CateringSpotlight() {
@@ -21,45 +21,40 @@ export function CateringSpotlight() {
           <div className="relative order-2 lg:order-1">
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-2xl">
               <Image
-                src="/images/seafood-boil-combo.jpg"
-                alt="K.Lou's Cajun Shack seafood boil catering spread"
+                src="/images/shrimp-boil.jpg"
+                alt="K.Lou's Cajun Shack shrimp boil catering spread"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
-            {/* Decorative Badge */}
-            <div className="absolute -bottom-6 -right-6 md:bottom-8 md:-right-8 bg-gold text-charcoal p-4 md:p-6 rounded-lg shadow-xl">
-              <p className="font-display text-2xl md:text-3xl">30+</p>
-              <p className="text-sm font-medium">Years of Flavor</p>
-            </div>
           </div>
 
           {/* Content */}
           <div className="order-1 lg:order-2">
-            <p className="text-gold font-display text-sm md:text-base tracking-wider mb-2">
-              BRING THE BAYOU TO YOUR EVENT
+            <p className="text-gold font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
+              Catering Services
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
-              Catering That Makes{' '}
-              <span className="text-gold">Memories</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6 leading-tight">
+              Bring the bayou to your next event
             </h2>
-            <p className="text-cream/80 text-lg leading-relaxed mb-8">
+            <p className="text-cream text-lg leading-relaxed mb-8">
               We cater events of all sizes with bold flavor, dependable service, and the 
               kind of food people remember long after the party is over. From intimate 
-              family gatherings to large corporate events, we bring authentic Louisiana 
-              taste to every occasion.
+              family gatherings to large corporate events.
             </p>
 
-            {/* Event Types Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-10">
-              {eventTypes.map((event) => (
+            {/* Features List */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+              {cateringFeatures.map((feature) => (
                 <div
-                  key={event.label}
-                  className="flex items-center gap-3 p-3 bg-charcoal-light rounded-lg"
+                  key={feature}
+                  className="flex items-center gap-3"
                 >
-                  <event.icon className="h-5 w-5 text-gold flex-shrink-0" />
-                  <span className="text-sm font-medium">{event.label}</span>
+                  <div className="flex-shrink-0 w-6 h-6 bg-cajun-red rounded-full flex items-center justify-center">
+                    <Check className="h-4 w-4 text-white" strokeWidth={3} />
+                  </div>
+                  <span className="text-sm text-cream">{feature}</span>
                 </div>
               ))}
             </div>
@@ -69,7 +64,7 @@ export function CateringSpotlight() {
               <Button
                 asChild
                 size="lg"
-                className="bg-cajun-red hover:bg-cajun-red-light text-white"
+                className="bg-gold hover:bg-gold-light text-charcoal rounded-full"
               >
                 <Link href="/catering">Request Catering Quote</Link>
               </Button>
@@ -77,9 +72,9 @@ export function CateringSpotlight() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-cream text-cream hover:bg-cream hover:text-charcoal"
+                className="border-cream text-cream hover:bg-cream hover:text-charcoal rounded-full"
               >
-                <a href="tel:+16025968036">Call to Discuss Your Event</a>
+                <a href="tel:+16025968036">Call to Discuss</a>
               </Button>
             </div>
           </div>

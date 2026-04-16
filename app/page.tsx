@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <>
       <Navigation />
-      <main className="pt-16 md:pt-20 pb-20 lg:pb-0">
+      <main className="pb-20 lg:pb-0">
         <Hero />
         <TrustBar />
         <FeaturedMenu />

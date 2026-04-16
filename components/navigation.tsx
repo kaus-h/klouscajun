@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 const navLinks = [
-  { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/menu', label: 'Menu' },
   { href: '/catering', label: 'Catering' },
@@ -28,7 +27,7 @@ export function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
+      setIsScrolled(window.scrollY > 50)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -46,117 +45,155 @@ export function Navigation() {
   }, [isOpen])
 
   return (
-    <header
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled 
-          ? 'bg-charcoal/95 backdrop-blur-sm shadow-lg' 
-          : 'bg-charcoal'
-      )}
-    >
-      <nav className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link 
-            href="/" 
-            className="flex items-center gap-2 text-cream hover:text-gold transition-colors"
-            onClick={() => setIsOpen(false)}
-          >
-            <span className="font-serif text-xl md:text-2xl font-bold tracking-tight">
-              K.Lou&apos;s Cajun Shack
-            </span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  'px-3 py-2 text-sm font-medium rounded-md transition-colors',
-                  pathname === link.href
-                    ? 'text-gold bg-charcoal-light'
-                    : 'text-cream hover:text-gold hover:bg-charcoal-light'
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Desktop Phone & CTA */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a
-              href={PHONE_LINK}
-              className="flex items-center gap-2 text-cream hover:text-gold transition-colors"
-            >
-              <Phone className="h-4 w-4" />
-              <span className="text-sm font-medium">{PHONE_NUMBER}</span>
-            </a>
-            <Button asChild size="sm" className="bg-cajun-red hover:bg-cajun-red-light text-white">
-              <Link href="/catering">Book Catering</Link>
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 text-cream hover:text-gold transition-colors"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label={isOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isOpen}
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
-        </div>
-      </nav>
-
-      {/* Mobile Menu */}
-      <div
-        className={cn(
-          'lg:hidden fixed inset-0 top-16 bg-charcoal z-40 transition-transform duration-300 ease-in-out',
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        )}
-      >
-        <div className="flex flex-col h-full px-4 py-6">
-          <div className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className={cn(
-                  'px-4 py-3 text-lg font-medium rounded-md transition-colors',
-                  pathname === link.href
-                    ? 'text-gold bg-charcoal-light'
-                    : 'text-cream hover:text-gold hover:bg-charcoal-light'
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-auto flex flex-col gap-4 pb-8">
-            <a
-              href={PHONE_LINK}
-              className="flex items-center justify-center gap-2 py-3 text-cream hover:text-gold transition-colors border border-cream/20 rounded-md"
-            >
-              <Phone className="h-5 w-5" />
-              <span className="font-medium">{PHONE_NUMBER}</span>
-            </a>
-            <Button 
-              asChild 
-              size="lg" 
-              className="w-full bg-cajun-red hover:bg-cajun-red-light text-white"
-            >
-              <Link href="/catering" onClick={() => setIsOpen(false)}>
-                Book Catering
-              </Link>
-            </Button>
+    <>
+      {/* Top Announcement Bar */}
+      <div className="bg-cream text-charcoal text-sm py-2 hidden md:block">
+        <div className="container mx-auto px-4 flex items-center justify-between">
+          <span className="text-charcoal/80">
+            Phoenix & Tempe pop-ups, catering, and crawfish season bookings
+          </span>
+          <div className="flex items-center gap-4">
+            <span className="text-cajun-red font-semibold">Black-owned</span>
+            <span className="text-cajun-red">•</span>
+            <span className="text-cajun-red font-semibold">Family-run</span>
           </div>
         </div>
       </div>
-    </header>
+
+      <header
+        className={cn(
+          'sticky top-0 left-0 right-0 z-50 transition-all duration-300',
+          isScrolled 
+            ? 'bg-cream shadow-lg' 
+            : 'bg-cream'
+        )}
+      >
+        <nav className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            {/* Logo */}
+            <Link 
+              href="/" 
+              className="flex flex-col hover:opacity-80 transition-opacity"
+              onClick={() => setIsOpen(false)}
+            >
+              <span className="font-serif text-2xl md:text-3xl font-bold text-charcoal tracking-tight leading-none">
+                K.Lou&apos;s
+              </span>
+              <span className="text-gold text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase">
+                Cajun Shack & Catering
+              </span>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    'px-3 py-2 text-sm font-medium transition-colors',
+                    pathname === link.href
+                      ? 'text-cajun-red'
+                      : 'text-charcoal hover:text-cajun-red'
+                  )}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            {/* Desktop Phone & CTA */}
+            <div className="hidden lg:flex items-center gap-4">
+              <a
+                href={PHONE_LINK}
+                className="flex items-center gap-2 text-charcoal hover:text-cajun-red transition-colors"
+              >
+                <Phone className="h-4 w-4" />
+                <span className="text-sm font-medium">{PHONE_NUMBER}</span>
+              </a>
+              <Button asChild className="bg-cajun-red hover:bg-cajun-red-dark text-white rounded-full px-6">
+                <Link href="/catering">Book Catering</Link>
+              </Button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden p-2 text-charcoal hover:text-cajun-red transition-colors"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+        </nav>
+
+        {/* Mobile Menu */}
+        <div
+          className={cn(
+            'lg:hidden fixed inset-0 top-16 bg-cream z-40 transition-transform duration-300 ease-in-out',
+            isOpen ? 'translate-x-0' : 'translate-x-full'
+          )}
+        >
+          <div className="flex flex-col h-full px-4 py-6">
+            {/* Mobile badges */}
+            <div className="flex items-center justify-center gap-4 pb-4 border-b border-charcoal/10 mb-4">
+              <span className="text-cajun-red font-semibold text-sm">Black-owned</span>
+              <span className="text-cajun-red">•</span>
+              <span className="text-cajun-red font-semibold text-sm">Family-run</span>
+            </div>
+            
+            <div className="flex flex-col gap-1">
+              <Link
+                href="/"
+                onClick={() => setIsOpen(false)}
+                className={cn(
+                  'px-4 py-3 text-lg font-medium rounded-md transition-colors',
+                  pathname === '/'
+                    ? 'text-cajun-red bg-cajun-red/10'
+                    : 'text-charcoal hover:text-cajun-red hover:bg-cajun-red/5'
+                )}
+              >
+                Home
+              </Link>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={cn(
+                    'px-4 py-3 text-lg font-medium rounded-md transition-colors',
+                    pathname === link.href
+                      ? 'text-cajun-red bg-cajun-red/10'
+                      : 'text-charcoal hover:text-cajun-red hover:bg-cajun-red/5'
+                  )}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-auto flex flex-col gap-4 pb-8">
+              <a
+                href={PHONE_LINK}
+                className="flex items-center justify-center gap-2 py-3 text-charcoal hover:text-cajun-red transition-colors border border-charcoal/20 rounded-full"
+              >
+                <Phone className="h-5 w-5" />
+                <span className="font-medium">{PHONE_NUMBER}</span>
+              </a>
+              <Button 
+                asChild 
+                size="lg" 
+                className="w-full bg-cajun-red hover:bg-cajun-red-dark text-white rounded-full"
+              >
+                <Link href="/catering" onClick={() => setIsOpen(false)}>
+                  Book Catering
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+    </>
   )
 }

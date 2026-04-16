@@ -2,33 +2,25 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 
 const featuredItems = [
   {
     id: 1,
-    name: 'Boiled Crawfish Plate',
-    price: 20,
-    description: 'Our signature Louisiana-style boiled crawfish with potatoes and sausage. A seasonal favorite.',
-    image: '/images/shrimp-boil.jpg',
-    tags: ['Signature', 'Seasonal'],
+    name: 'Southern Fried Catfish Plate',
+    image: '/images/catfish-plate.jpg',
+    description: '5pc catfish with homemade Cajun seasoned fries and 2 hush puppies',
   },
   {
     id: 2,
-    name: 'Cajun Fried Gator Plate',
-    price: 18,
-    description: 'Crispy fried alligator bites served with potato salad and sweet peas or green beans.',
+    name: 'Jambalaya Combo',
     image: '/images/jambalaya-combo.jpg',
-    tags: ['Fan Favorite'],
+    description: 'Jambalaya with corn, sausage, and fried shrimp',
   },
   {
     id: 3,
-    name: 'Southern Fried Catfish & Jambalaya',
-    price: 15,
-    description: 'Golden fried catfish fillets with our house jambalaya, potato salad, and sweet peas or green beans.',
-    image: '/images/catfish-plate.jpg',
-    tags: ['Fan Favorite'],
+    name: 'Shrimp Po-Boy',
+    image: '/images/shrimp-poboy.jpg',
+    description: 'Crispy fried shrimp on fresh French bread with all the fixings',
   },
 ]
 
@@ -37,87 +29,58 @@ export function FeaturedMenu() {
     <section className="py-16 md:py-24 bg-cream">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-gold font-display text-sm md:text-base tracking-wider mb-2">
-            TASTE THE BAYOU
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-charcoal mb-4">
-            Featured Menu Items
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Authentic Louisiana flavors prepared with love and served with real Southern hospitality.
-          </p>
-        </div>
-
-        {/* Menu Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {featuredItems.map((item) => (
-            <Card 
-              key={item.id} 
-              className="group overflow-hidden bg-white border-0 shadow-md hover:shadow-xl transition-all duration-300"
-            >
-              {/* Image */}
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-                {/* Price Badge */}
-                <div className="absolute top-4 right-4 bg-cajun-red text-white font-bold px-3 py-1 rounded-full text-lg shadow-lg">
-                  ${item.price}
-                </div>
-              </div>
-
-              <CardContent className="p-6">
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {item.tags.map((tag) => (
-                    <Badge 
-                      key={tag} 
-                      variant={tag === 'Signature' ? 'default' : 'secondary'}
-                      className={
-                        tag === 'Signature' 
-                          ? 'bg-cajun-red text-white' 
-                          : tag === 'Seasonal'
-                          ? 'bg-charcoal text-white'
-                          : 'bg-gold text-charcoal'
-                      }
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-serif font-bold text-charcoal mb-2">
-                  {item.name}
-                </h3>
-
-                {/* Description */}
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {item.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="text-center mt-12">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+          <div>
+            <p className="text-cajun-red font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
+              Signature Dishes
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-charcoal leading-tight max-w-2xl">
+              The plates people talk about after the pop-up ends
+            </h2>
+            <p className="text-charcoal mt-4 max-w-xl leading-relaxed">
+              Bold Louisiana flavors that keep people coming back, whether you catch the truck or 
+              bring the whole menu to your event.
+            </p>
+          </div>
           <Button
             asChild
-            size="lg"
             variant="outline"
-            className="border-2 border-cajun-red text-cajun-red hover:bg-cajun-red hover:text-white"
+            className="border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-cream rounded-full px-6 self-start md:self-auto"
           >
             <Link href="/menu" className="flex items-center gap-2">
               View Full Menu
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
+        </div>
+
+        {/* Menu Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {featuredItems.map((item) => (
+            <div 
+              key={item.id} 
+              className="group"
+            >
+              {/* Image */}
+              <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-4 shadow-lg">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+
+              {/* Content */}
+              <h3 className="text-xl font-serif font-bold text-charcoal mb-2">
+                {item.name}
+              </h3>
+              <p className="text-charcoal text-sm">
+                {item.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
