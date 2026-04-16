@@ -111,7 +111,7 @@ export function CateringForm() {
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="h-8 w-8 text-green-600" />
           </div>
-          <h3 className="text-2xl font-serif font-bold text-charcoal mb-4">
+          <h3 className="type-card-title text-charcoal mb-4">
             Thank You!
           </h3>
           <p className="text-muted-foreground mb-6">
@@ -136,7 +136,7 @@ export function CateringForm() {
   return (
     <Card className="bg-white border-0 shadow-xl">
       <CardHeader className="p-6 md:p-8 border-b">
-        <CardTitle className="text-2xl font-serif font-bold text-charcoal">
+        <CardTitle className="type-card-title text-charcoal">
           Request a Catering Quote
         </CardTitle>
         <CardDescription>

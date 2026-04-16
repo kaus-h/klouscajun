@@ -123,10 +123,10 @@ export default function FAQPage() {
             <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-6">
               <HelpCircle className="h-8 w-8 text-gold" />
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4">
+            <h1 className="type-page-title mb-4">
               Frequently Asked Questions
             </h1>
-            <p className="text-cream/80 max-w-2xl mx-auto text-lg">
+            <p className="type-lead text-cream/80 mx-auto">
               Got questions? We&apos;ve got answers. If you don&apos;t find what 
               you&apos;re looking for, feel free to give us a call.
             </p>
@@ -145,7 +145,7 @@ export default function FAQPage() {
             <div className="max-w-3xl mx-auto">
               {faqCategories.map((category, categoryIndex) => (
                 <div key={category.category} className={categoryIndex > 0 ? 'mt-12' : ''}>
-                  <h2 className="text-2xl font-serif font-bold text-charcoal mb-6 pb-2 border-b-2 border-cajun-red">
+                  <h2 className="type-card-title text-charcoal mb-6 pb-2 border-b-2 border-cajun-red">
                     {category.category}
                   </h2>
                   <Accordion type="single" collapsible className="space-y-4">
@@ -173,7 +173,7 @@ export default function FAQPage() {
         {/* Still Have Questions CTA */}
         <section className="py-16 md:py-20 bg-charcoal text-cream">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+            <h2 className="type-section-title mb-4">
               Still Have Questions?
             </h2>
             <p className="text-cream/80 max-w-xl mx-auto mb-8">
@@ -206,7 +206,7 @@ export default function FAQPage() {
         {/* Catering CTA */}
         <section className="py-16 md:py-20 bg-cajun-red text-white">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+            <h2 className="type-section-title mb-4">
               Ready to Book Catering?
             </h2>
             <p className="text-white/90 max-w-xl mx-auto mb-8">

@@ -1,47 +1,72 @@
 import Link from 'next/link'
-import { Phone } from 'lucide-react'
+import { ArrowRight, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export function CTABanner() {
   return (
-    <section className="py-16 md:py-20 bg-gradient-to-r from-cajun-red to-cajun-red-dark relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cajun-red-light/20 via-transparent to-transparent" />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-gold font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-4">
-            Book the Next Gathering
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-4 leading-tight">
-            Ready to experience authentic Cajun flavor?
-          </h2>
-          <p className="text-white/90 text-lg mb-8 max-w-2xl">
-            Book catering for your next event, lock in a crawfish boil, or call us to find 
-            out where we&apos;ll be next.
-          </p>
+    <section className="bg-cream-dark py-16 md:py-20">
+      <div className="container mx-auto px-4">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start">
+          <div className="space-y-4">
+            <p className="type-kicker text-cajun-red">Choose the fast path</p>
+            <h2 className="type-section-title max-w-xl text-charcoal">
+              Make the next step obvious whether someone is hungry now or planning ahead.
+            </h2>
+            <p className="type-body max-w-xl text-charcoal/75">
+              The site needs to serve both audiences equally. Split the choices clearly and let
+              each one feel intentional.
+            </p>
+          </div>
 
-          <div className="flex flex-col sm:flex-row items-start gap-4">
-            <Button
-              asChild
-              size="lg"
-              className="w-full sm:w-auto bg-gold hover:bg-gold-light text-charcoal text-base px-8 py-6 rounded-full shadow-xl shadow-black/30 font-semibold"
-            >
-              <Link href="/catering">
-                Book Catering
-              </Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-cajun-red text-base px-8 py-6 rounded-full shadow-lg"
-            >
-              <a href="tel:+16025968036" className="flex items-center gap-2">
-                <Phone className="h-5 w-5" />
-                Call Now
-              </a>
-            </Button>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="rounded-3xl bg-charcoal p-8 text-cream">
+              <p className="type-kicker text-gold">Eat today</p>
+              <h3 className="type-card-title mt-2 text-cream">Need the current stop, menu, or a quick call?</h3>
+              <p className="type-meta mt-3 text-cream/75">
+                Get location details fast, check the menu, and call ahead before you drive over.
+              </p>
+              <div className="mt-6 flex flex-col gap-3">
+                <Button asChild className="rounded-full bg-gold text-charcoal hover:bg-gold-light">
+                  <Link href="/find-us">Find us today</Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="link"
+                  className="h-auto justify-start p-0 text-cream hover:text-gold"
+                >
+                  <Link href="/menu" className="flex items-center gap-2">
+                    View the menu
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+
+            <div className="rounded-3xl bg-cajun-red p-8 text-white">
+              <p className="type-kicker text-white/75">Book catering</p>
+              <h3 className="type-card-title mt-2 text-white">
+                Planning a graduation, party, or client event?
+              </h3>
+              <p className="type-meta mt-3 text-white/85">
+                Start the quote, talk through service options, or lock in a crawfish boil while the
+                calendar is still open.
+              </p>
+              <div className="mt-6 flex flex-col gap-3">
+                <Button asChild className="rounded-full bg-white text-cajun-red hover:bg-cream">
+                  <Link href="/catering">Request a quote</Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="link"
+                  className="h-auto justify-start p-0 text-white hover:text-cream"
+                >
+                  <a href="tel:+16025968036" className="flex items-center gap-2">
+                    <Phone className="h-4 w-4" />
+                    Call (602) 596-8036
+                  </a>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

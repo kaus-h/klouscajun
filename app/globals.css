@@ -89,9 +89,9 @@
 }
 
 @theme inline {
-  --font-sans: 'Inter', 'Inter Fallback', system-ui, sans-serif;
-  --font-serif: 'Playfair Display', 'Playfair Display Fallback', Georgia, serif;
-  --font-display: 'Bebas Neue', 'Bebas Neue Fallback', Impact, sans-serif;
+  --font-sans: 'Source Sans 3', 'Segoe UI', 'Trebuchet MS', sans-serif;
+  --font-serif: 'Bricolage Grotesque', 'Trebuchet MS', 'Segoe UI', sans-serif;
+  --font-display: 'Source Sans 3', 'Segoe UI', 'Trebuchet MS', sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   
   /* Brand Color Tokens */
@@ -145,10 +145,114 @@
 }
 
 @layer base {
+  html {
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+  }
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    line-height: 1.6;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  [data-slot='card-title'] {
+    font-family: var(--font-serif);
+    letter-spacing: -0.03em;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer utilities {
+  .type-kicker {
+    font-family: var(--font-display);
+    font-size: clamp(0.74rem, 0.25vw + 0.7rem, 0.88rem);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1.15;
+    text-transform: uppercase;
+  }
+
+  .type-hero {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 0.94;
+    text-wrap: balance;
+  }
+
+  .type-page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.6rem, 4.8vw, 4.7rem);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+    text-wrap: balance;
+  }
+
+  .type-section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3vw, 3.35rem);
+    font-weight: 700;
+    letter-spacing: -0.038em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  .type-card-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 1.2vw + 1rem, 1.8rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  .type-lead {
+    font-size: clamp(1.0625rem, 0.35vw + 1rem, 1.28rem);
+    line-height: 1.72;
+    max-width: 58ch;
+  }
+
+  .type-body {
+    font-size: 1rem;
+    line-height: 1.72;
+    max-width: 64ch;
+  }
+
+  .type-meta {
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    line-height: 1.55;
+  }
+
+  .type-nav-brand {
+    font-family: var(--font-serif);
+    font-size: clamp(1.9rem, 0.8vw + 1.7rem, 2.65rem);
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    line-height: 0.9;
+  }
+
+  .type-nav-subbrand {
+    font-family: var(--font-display);
+    font-size: clamp(0.68rem, 0.2vw + 0.64rem, 0.82rem);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    line-height: 1.1;
+    text-transform: uppercase;
   }
 }

@@ -1,82 +1,98 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Check } from 'lucide-react'
+import { Check, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const cateringFeatures = [
-  'Private parties & celebrations',
+  'Private parties and celebrations',
   'Graduation parties',
-  'Corporate lunches & events',
+  'Corporate lunches and events',
   'Family gatherings',
   'Seasonal crawfish boils',
   'Community events',
 ]
 
+const hostingNotes = [
+  {
+    title: 'For family gatherings',
+    description:
+      'Big portions, familiar comfort, and the kind of menu that feels generous when people go back for seconds.',
+  },
+  {
+    title: 'For polished client events',
+    description:
+      'Straightforward planning, dependable arrival, and food that still feels personal instead of catered-by-template.',
+  },
+]
+
 export function CateringSpotlight() {
   return (
-    <section className="py-16 md:py-24 bg-charcoal-light text-cream border-t border-charcoal-medium">
+    <section className="bg-charcoal py-16 md:py-24 text-cream">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Image */}
-          <div className="relative order-2 lg:order-1">
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-2xl shadow-black/50 ring-1 ring-charcoal-medium">
-              <Image
-                src="/images/shrimp-boil.jpg"
-                alt="K.Lou's Cajun Shack shrimp boil catering spread"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="order-1 lg:order-2">
-            <p className="text-gold font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
-              Catering Services
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6 leading-tight">
-              Bring the bayou to your next event
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
+          <div className="space-y-6">
+            <p className="type-kicker text-gold">Catering services</p>
+            <h2 className="type-section-title max-w-xl text-cream">
+              Bring the bayou to the event without losing the neighborhood warmth.
             </h2>
-            <p className="text-cream/90 text-lg leading-relaxed mb-8">
-              We cater events of all sizes with bold flavor, dependable service, and the 
-              kind of food people remember long after the party is over. From intimate 
-              family gatherings to large corporate events.
+            <p className="type-body max-w-xl text-cream/80">
+              K.Lou&apos;s caters the parties people care about: graduation spreads, office lunches,
+              family tables, and seasonal crawfish boils that people plan early for. The food is
+              memorable, and the communication stays direct.
             </p>
 
-            {/* Features List */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+            <div className="grid gap-4 sm:grid-cols-2">
               {cateringFeatures.map((feature) => (
-                <div
-                  key={feature}
-                  className="flex items-center gap-3"
-                >
-                  <div className="flex-shrink-0 w-6 h-6 bg-cajun-red rounded-full flex items-center justify-center shadow-md shadow-cajun-red/30">
-                    <Check className="h-4 w-4 text-white" strokeWidth={3} />
-                  </div>
-                  <span className="text-sm text-cream">{feature}</span>
+                <div key={feature} className="flex items-start gap-3 border-t border-cream/15 pt-4">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/15">
+                    <Check className="h-4 w-4 text-gold" strokeWidth={3} />
+                  </span>
+                  <span className="type-meta text-cream/80">{feature}</span>
                 </div>
               ))}
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <Button
                 asChild
                 size="lg"
-                className="bg-gold hover:bg-gold-light text-charcoal rounded-full shadow-lg shadow-gold/30"
+                className="rounded-full bg-gold text-charcoal hover:bg-gold-light"
               >
-                <Link href="/catering">Request Catering Quote</Link>
+                <Link href="/catering">Request a quote</Link>
               </Button>
               <Button
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-cream text-cream hover:bg-cream hover:text-charcoal rounded-full"
+                className="rounded-full border-cream text-cream hover:bg-cream hover:text-charcoal"
               >
-                <a href="tel:+16025968036">Call to Discuss</a>
+                <a href="tel:+16025968036" className="flex items-center gap-2">
+                  <Phone className="h-5 w-5" />
+                  Call to discuss
+                </a>
               </Button>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <div className="relative aspect-[5/4] overflow-hidden rounded-3xl bg-charcoal-light">
+              <Image
+                src="/images/shrimp-boil.jpg"
+                alt="K.Lou's Cajun Shack shrimp boil catering spread"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 48vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              {hostingNotes.map((note) => (
+                <article key={note.title} className="border-t border-cream/15 pt-5">
+                  <p className="type-kicker text-gold/90">{note.title}</p>
+                  <p className="type-meta mt-3 text-cream/75">{note.description}</p>
+                </article>
+              ))}
             </div>
           </div>
         </div>

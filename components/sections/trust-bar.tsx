@@ -1,47 +1,58 @@
 import { Check } from 'lucide-react'
 
-const trustBadges = [
-  'Authentic Cajun & Creole',
-  'Catering for All Sizes',
-  'Crawfish Boil Reservations',
-  'Family-Run Hospitality',
-  'Black-Owned Business',
-  'Phoenix / Tempe Area',
+const trustGroups = [
+  {
+    title: 'For lunch, dinner, and quick stops',
+    items: [
+      'Authentic Cajun and Creole cooking',
+      'Phoenix and Tempe pop-up locations',
+      'Seasonal crawfish and snowball specials',
+    ],
+  },
+  {
+    title: 'For family tables and bigger events',
+    items: [
+      'Family-run hospitality',
+      'Catering for gatherings of all sizes',
+      'Clear communication from quote to pickup or setup',
+    ],
+  },
 ]
 
 export function TrustBar() {
   return (
-    <section className="bg-charcoal-light py-10 md:py-12 border-t border-charcoal-medium">
+    <section className="bg-white py-16 md:py-20">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="mb-8">
-          <p className="text-gold font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
-            Why Regulars Keep Pulling Up
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-cream leading-tight max-w-3xl">
-            Flavor first. Hospitality close behind.
-          </h2>
-          <p className="text-cream/90 mt-4 max-w-2xl leading-relaxed">
-            K.Lou&apos;s is built for people who want authentic Cajun food, clear communication, 
-            and a setup that feels rooted in community instead of generic catering.
-          </p>
-        </div>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
+          <div className="space-y-4">
+            <p className="type-kicker text-cajun-red">Why people keep pulling up</p>
+            <h2 className="type-section-title max-w-xl text-charcoal">
+              The food lands first. The hospitality makes people stay loyal.
+            </h2>
+            <p className="type-body max-w-xl text-charcoal/75">
+              K.Lou&apos;s works because it feels grounded. The menu is recognizable, the service is
+              direct, and both the everyday stop and the bigger catering order feel handled by
+              people who care.
+            </p>
+          </div>
 
-        {/* Trust Badges Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {trustBadges.map((badge) => (
-            <div
-              key={badge}
-              className="flex items-center gap-4 p-4 bg-charcoal rounded-lg border border-charcoal-medium shadow-lg shadow-black/20"
-            >
-              <div className="flex-shrink-0 w-8 h-8 bg-cajun-red rounded-full flex items-center justify-center shadow-md shadow-cajun-red/30">
-                <Check className="h-5 w-5 text-white" strokeWidth={3} />
-              </div>
-              <span className="text-cream font-medium">
-                {badge}
-              </span>
-            </div>
-          ))}
+          <div className="grid gap-8 md:grid-cols-2">
+            {trustGroups.map((group) => (
+              <article key={group.title} className="border-t border-charcoal/15 pt-5">
+                <h3 className="type-card-title text-charcoal">{group.title}</h3>
+                <ul className="mt-4 space-y-3">
+                  {group.items.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-charcoal/75">
+                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cajun-red/10">
+                        <Check className="h-4 w-4 text-cajun-red" strokeWidth={3} />
+                      </span>
+                      <span className="type-meta text-base">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

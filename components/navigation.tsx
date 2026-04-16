@@ -76,10 +76,10 @@ export function Navigation() {
               className="flex flex-col hover:opacity-80 transition-opacity"
               onClick={() => setIsOpen(false)}
             >
-              <span className="font-serif text-2xl md:text-3xl font-bold text-cream tracking-tight leading-none">
+              <span className="type-nav-brand text-cream">
                 K.Lou&apos;s
               </span>
-              <span className="text-gold text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase">
+              <span className="type-nav-subbrand text-gold">
                 Cajun Shack & Catering
               </span>
             </Link>
@@ -91,7 +91,7 @@ export function Navigation() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    'px-3 py-2 text-sm font-medium transition-colors',
+                    'px-3 py-2 text-[0.98rem] font-semibold tracking-[0.01em] transition-colors',
                     pathname === link.href
                       ? 'text-gold'
                       : 'text-cream hover:text-gold'
@@ -106,10 +106,10 @@ export function Navigation() {
             <div className="hidden lg:flex items-center gap-4">
               <a
                 href={PHONE_LINK}
-                className="flex items-center gap-2 text-cream hover:text-gold transition-colors"
+                className="flex items-center gap-2 text-cream hover:text-gold transition-colors text-[0.98rem]"
               >
                 <Phone className="h-4 w-4" />
-                <span className="text-sm font-medium">{PHONE_NUMBER}</span>
+                <span className="font-semibold tracking-[0.01em]">{PHONE_NUMBER}</span>
               </a>
               <Button asChild className="bg-cajun-red hover:bg-cajun-red-light text-white rounded-full px-6 shadow-lg shadow-cajun-red/30">
                 <Link href="/catering">Book Catering</Link>
@@ -148,7 +148,7 @@ export function Navigation() {
                 href="/"
                 onClick={() => setIsOpen(false)}
                 className={cn(
-                  'px-4 py-3 text-lg font-medium rounded-md transition-colors',
+                  'px-4 py-3 text-[1.05rem] font-semibold tracking-[0.01em] rounded-md transition-colors',
                   pathname === '/'
                     ? 'text-gold bg-charcoal-medium'
                     : 'text-cream hover:text-gold hover:bg-charcoal-medium'
@@ -162,7 +162,7 @@ export function Navigation() {
                   href={link.href}
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    'px-4 py-3 text-lg font-medium rounded-md transition-colors',
+                    'px-4 py-3 text-[1.05rem] font-semibold tracking-[0.01em] rounded-md transition-colors',
                     pathname === link.href
                       ? 'text-gold bg-charcoal-medium'
                       : 'text-cream hover:text-gold hover:bg-charcoal-medium'
@@ -176,10 +176,10 @@ export function Navigation() {
             <div className="mt-auto flex flex-col gap-4 pb-8">
               <a
                 href={PHONE_LINK}
-                className="flex items-center justify-center gap-2 py-3 text-cream hover:text-gold transition-colors border border-charcoal-medium rounded-full"
+                className="flex items-center justify-center gap-2 py-3 text-cream hover:text-gold transition-colors border border-charcoal-medium rounded-full text-[1rem]"
               >
                 <Phone className="h-5 w-5" />
-                <span className="font-medium">{PHONE_NUMBER}</span>
+                <span className="font-semibold tracking-[0.01em]">{PHONE_NUMBER}</span>
               </a>
               <Button 
                 asChild 

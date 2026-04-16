@@ -25,64 +25,82 @@ const featuredItems = [
 ]
 
 export function FeaturedMenu() {
+  const [signatureDish, ...secondaryDishes] = featuredItems
+
   return (
-    <section className="py-16 md:py-24 bg-charcoal">
+    <section className="bg-cream-dark py-16 md:py-24">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-          <div>
-            <p className="text-gold font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
-              Signature Dishes
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-cream leading-tight max-w-2xl">
-              The plates people talk about after the pop-up ends
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="space-y-4">
+            <p className="type-kicker text-cajun-red">Signature dishes</p>
+            <h2 className="type-section-title max-w-2xl text-charcoal">
+              The plates people talk about after the pop-up wraps up.
             </h2>
-            <p className="text-cream/90 mt-4 max-w-xl leading-relaxed">
-              Bold Louisiana flavors that keep people coming back, whether you catch the truck or 
-              bring the whole menu to your event.
+            <p className="type-body max-w-xl text-charcoal/75">
+              No filler grid of menu items here. These are the plates regulars mention by name
+              when they call ahead or bring K.Lou&apos;s into an event.
             </p>
           </div>
+
           <Button
             asChild
             variant="outline"
-            className="border-2 border-gold text-gold hover:bg-gold hover:text-charcoal rounded-full px-6 self-start md:self-auto"
+            className="self-start rounded-full border-charcoal text-charcoal hover:bg-charcoal hover:text-cream"
           >
             <Link href="/menu" className="flex items-center gap-2">
-              View Full Menu
+              View full menu
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
         </div>
 
-        {/* Menu Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {featuredItems.map((item) => (
-            <div 
-              key={item.id} 
-              className="group"
-            >
-              {/* Image */}
-              <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-4 shadow-xl shadow-black/40 ring-1 ring-charcoal-medium">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-              </div>
-
-              {/* Content */}
-              <h3 className="text-xl font-serif font-bold text-cream mb-2">
-                {item.name}
-              </h3>
-              <p className="text-cream/80 text-sm">
-                {item.description}
+        <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(280px,0.95fr)] lg:items-start">
+          <article className="grid gap-6 border-t border-charcoal/15 pt-6 lg:grid-cols-[minmax(0,1fr)_minmax(260px,0.95fr)]">
+            <div className="space-y-4">
+              <p className="type-kicker text-cajun-red/80">Most requested plate</p>
+              <h3 className="type-section-title text-charcoal">{signatureDish.name}</h3>
+              <p className="type-body max-w-xl text-charcoal/75">{signatureDish.description}</p>
+              <p className="type-meta text-charcoal/65">
+                Crispy, generous, and instantly recognizable. It carries the same energy whether
+                you&apos;re grabbing dinner or feeding a party.
               </p>
             </div>
-          ))}
+
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-charcoal shadow-xl shadow-charcoal/10">
+              <Image
+                src={signatureDish.image}
+                alt={signatureDish.name}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 28vw"
+              />
+            </div>
+          </article>
+
+          <div className="border-t border-charcoal/15 pt-6">
+            <div className="space-y-6">
+              {secondaryDishes.map((item) => (
+                <article
+                  key={item.id}
+                  className="grid gap-4 border-b border-charcoal/10 pb-6 last:border-b-0 last:pb-0 sm:grid-cols-[160px_1fr]"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-charcoal">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, 160px"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="type-card-title text-charcoal">{item.name}</h3>
+                    <p className="type-meta text-charcoal/75">{item.description}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

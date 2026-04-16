@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Clock, Phone, AlertCircle } from 'lucide-react'
+import { AlertCircle, Clock, MapPin, Phone } from 'lucide-react'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import { StickyCTABar } from '@/components/sticky-cta-bar'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
 
 export const metadata: Metadata = {
   title: 'Menu',
@@ -64,221 +63,315 @@ const additionalItems = [
 ]
 
 export default function MenuPage() {
+  const [signaturePlate, ...secondaryPlates] = featuredPlates
+
   return (
     <>
       <Navigation />
       <main className="pb-20 lg:pb-0">
-        {/* Hero Section */}
-        <section className="relative py-16 md:py-24 bg-charcoal text-cream overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
-            <Image
-              src="/images/jambalaya-combo.jpg"
-              alt=""
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-          <div className="relative container mx-auto px-4">
-            <p className="text-gold font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
-              Taste the Bayou
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4">
-              Our Menu
-            </h1>
-            <p className="text-cream/80 max-w-2xl text-lg">
-              Authentic Louisiana Cajun & Creole cuisine made with love and served 
-              with real Southern hospitality.
-            </p>
-            
-            {/* Hours Badge */}
-            <div className="inline-flex items-center gap-2 mt-6 px-4 py-2 bg-gold/20 rounded-full">
-              <Clock className="h-5 w-5 text-gold" />
-              <span className="text-gold font-medium">Open Today: 11 AM - 7 PM</span>
-            </div>
-          </div>
-        </section>
+        <section className="relative overflow-hidden bg-cream pt-16 pb-16 md:pt-24 md:pb-24">
+          <div className="absolute inset-x-0 top-0 h-56 bg-gradient-to-b from-gold/20 to-transparent pointer-events-none" />
+          <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-cajun-red/10 blur-3xl pointer-events-none" />
 
-        {/* Menu Disclaimer */}
-        <section className="bg-cream py-4">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center justify-center gap-3 text-charcoal/70 text-sm">
-              <AlertCircle className="h-4 w-4 flex-shrink-0" />
-              <p>Menu availability may vary by pop-up location, season, or catering event. Call ahead to confirm.</p>
-            </div>
-          </div>
-        </section>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_360px] lg:items-start">
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <p className="type-kicker text-cajun-red">Taste the bayou</p>
+                  <h1 className="type-page-title max-w-[12ch] text-charcoal">
+                    The menu should make the food feel worth leaving the house for.
+                  </h1>
+                  <p className="type-lead max-w-2xl text-charcoal/80">
+                    Authentic Louisiana Cajun and Creole plates, seasonal crawfish, snowballs, and
+                    pop-up favorites that still feel generous when they travel to a bigger event.
+                  </p>
+                </div>
 
-        {/* Featured Plates Section */}
-        <section className="py-16 md:py-20 bg-cream">
-          <div className="container mx-auto px-4">
-            <div className="mb-12">
-              <p className="text-cajun-red font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
-                Featured Plates
-              </p>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-charcoal mb-2">
-                Our signature dishes
-              </h2>
-              <p className="text-charcoal/70">The plates that keep customers coming back</p>
-            </div>
+                <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="rounded-full bg-charcoal text-cream hover:bg-charcoal-light"
+                  >
+                    <Link href="/find-us">Find today&apos;s location</Link>
+                  </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full border-charcoal text-charcoal hover:bg-charcoal hover:text-cream"
+                  >
+                    <a href="tel:+16025968036" className="flex items-center gap-2">
+                      <Phone className="h-5 w-5" />
+                      Call ahead
+                    </a>
+                  </Button>
+                </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl">
-              {featuredPlates.map((item) => (
-                <Card key={item.id} className="overflow-hidden bg-white border-0 shadow-md">
-                  <div className="relative aspect-[4/3]">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                    <div className="absolute top-4 right-4 bg-cajun-red text-white font-bold px-4 py-2 rounded-full text-xl shadow-lg">
-                      ${item.price}
-                    </div>
-                  </div>
-                  <CardContent className="p-6">
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {item.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className={`px-2 py-0.5 text-xs font-semibold rounded ${
-                            tag === 'Signature'
-                              ? 'bg-cajun-red text-white'
-                              : tag === 'Seasonal'
-                              ? 'bg-charcoal text-white'
-                              : 'bg-gold text-charcoal'
-                          }`}
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <h3 className="text-xl font-serif font-bold text-charcoal mb-2">
-                      {item.name}
-                    </h3>
-                    <p className="text-charcoal/70 text-sm leading-relaxed">
-                      {item.description}
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div className="border-t border-charcoal/15 pt-4">
+                    <p className="type-kicker text-cajun-red/80">Most asked about</p>
+                    <p className="type-card-title mt-2 text-charcoal">
+                      Crawfish, catfish, jambalaya, po-boys, and whatever people heard was running this week.
                     </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Snowballs Section */}
-        <section className="py-16 md:py-20 bg-charcoal text-cream">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl">
-              <div className="mb-10">
-                <p className="text-gold font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
-                  Frozen Treats
-                </p>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-2">
-                  New Orleans Style Snowballs
-                </h2>
-                <div className="flex items-center gap-4 mt-4">
-                  <span className="text-3xl font-bold text-gold">$6</span>
-                  <span className="text-cream/70">1 flavor included | Add-on flavors +$2</span>
+                  </div>
+                  <div className="border-t border-charcoal/15 pt-4">
+                    <p className="type-kicker text-cajun-red/80">Heads up</p>
+                    <p className="type-card-title mt-2 text-charcoal">
+                      Menu availability shifts by pop-up, season, and catering schedule.
+                    </p>
+                    <p className="type-meta mt-2 text-charcoal/65">
+                      Call if you&apos;re making the trip for a specific plate or looking for a large pickup.
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <Card className="bg-charcoal-light border-charcoal-light overflow-hidden">
-                <div className="relative h-48 md:h-64">
+              <div className="space-y-4">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-charcoal shadow-2xl shadow-charcoal/15">
                   <Image
-                    src="/images/beignets.jpg"
-                    alt="Fresh beignets - a New Orleans classic treat"
+                    src="/images/jambalaya-combo.jpg"
+                    alt="Jambalaya combo with corn, sausage, and fried shrimp"
                     fill
                     className="object-cover"
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 34vw"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
                 </div>
-                <CardContent className="p-6 md:p-8">
-                  <h3 className="text-lg font-semibold text-gold mb-4">Available Flavors:</h3>
+
+                <aside className="rounded-3xl bg-charcoal p-6 text-cream">
+                  <div className="flex items-center gap-2 text-gold">
+                    <Clock className="h-4 w-4" />
+                    <span className="type-kicker text-gold">Hours</span>
+                  </div>
+                  <div className="mt-4 space-y-3 border-t border-cream/10 pt-4 text-sm">
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="text-cream/70">Mon - Thu</span>
+                      <span className="font-semibold text-cream">10:30 AM - 5:30 PM</span>
+                    </div>
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="text-cream/70">Fri - Sat</span>
+                      <span className="font-semibold text-cream">11:00 AM - 5:30 PM</span>
+                    </div>
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="text-cream/70">Sunday</span>
+                      <span className="text-cream/45">Closed</span>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 border-t border-cream/10 pt-4">
+                    <p className="type-kicker text-gold">Current stop</p>
+                    <p className="type-card-title mt-2 text-cream">615 S Hardy Dr</p>
+                    <p className="mt-2 flex items-center gap-2 text-sm text-cream/70">
+                      <MapPin className="h-4 w-4 text-gold" />
+                      Tempe, AZ 85281
+                    </p>
+                    <p className="mt-4 flex items-start gap-2 text-sm text-cream/70">
+                      <AlertCircle className="h-4 w-4 shrink-0 text-gold" />
+                      Menu and hours can shift with pop-ups and larger catering events.
+                    </p>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white py-16 md:py-24">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <div className="space-y-4">
+                <p className="type-kicker text-cajun-red">Featured plates</p>
+                <h2 className="type-section-title max-w-2xl text-charcoal">
+                  Lead with the plates people actually mention when they call.
+                </h2>
+                <p className="type-body max-w-xl text-charcoal/75">
+                  The menu doesn&apos;t need to feel like an index. One strong signature plate, then
+                  supporting favorites that show the range.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(280px,0.95fr)]">
+              <article className="grid gap-6 border-t border-charcoal/15 pt-6 lg:grid-cols-[minmax(0,1fr)_minmax(260px,0.95fr)] lg:items-start">
+                <div className="space-y-4">
                   <div className="flex flex-wrap gap-2">
-                    {snowballFlavors.map((flavor) => (
+                    {signaturePlate.tags.map((tag) => (
                       <span
-                        key={flavor}
-                        className="px-3 py-1 border border-cream/30 text-cream text-sm rounded-full"
+                        key={tag}
+                        className={`rounded-full px-3 py-1 text-xs font-semibold ${
+                          tag === 'Signature'
+                            ? 'bg-cajun-red text-white'
+                            : tag === 'Seasonal'
+                              ? 'bg-charcoal text-cream'
+                              : 'bg-gold text-charcoal'
+                        }`}
                       >
-                        {flavor}
+                        {tag}
                       </span>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
+                  <h3 className="type-section-title text-charcoal">{signaturePlate.name}</h3>
+                  <p className="type-body max-w-xl text-charcoal/75">{signaturePlate.description}</p>
+                  <p className="text-4xl font-semibold tracking-tight text-cajun-red">
+                    ${signaturePlate.price}
+                  </p>
+                </div>
+
+                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-charcoal">
+                  <Image
+                    src={signaturePlate.image}
+                    alt={signaturePlate.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 28vw"
+                  />
+                </div>
+              </article>
+
+              <div className="border-t border-charcoal/15 pt-6">
+                <div className="space-y-6">
+                  {secondaryPlates.map((item) => (
+                    <article
+                      key={item.id}
+                      className="grid gap-4 border-b border-charcoal/10 pb-6 last:border-b-0 last:pb-0 sm:grid-cols-[152px_1fr]"
+                    >
+                      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-charcoal">
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 640px) 100vw, 152px"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex items-start justify-between gap-4">
+                          <h3 className="type-card-title text-charcoal">{item.name}</h3>
+                          <span className="text-xl font-semibold text-cajun-red">${item.price}</span>
+                        </div>
+                        <p className="type-meta text-charcoal/75">{item.description}</p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Drinks Section */}
-        <section className="py-16 md:py-20 bg-cream">
+        <section className="bg-cream-dark py-16 md:py-20">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl">
-              <div className="mb-10">
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-charcoal mb-2">
-                  Drinks
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+              <div className="space-y-5">
+                <p className="type-kicker text-cajun-red">Frozen treats</p>
+                <h2 className="type-section-title max-w-xl text-charcoal">
+                  New Orleans style snowballs deserve their own breathing room.
                 </h2>
+                <p className="type-body max-w-xl text-charcoal/75">
+                  A light, fluffy Arizona cooldown with rotating flavors people come back for when
+                  the weather turns brutal.
+                </p>
+                <div className="border-t border-charcoal/15 pt-5">
+                  <p className="text-4xl font-semibold tracking-tight text-cajun-red">$6</p>
+                  <p className="type-meta mt-2 text-charcoal/65">
+                    One flavor included. Add-on flavors are +$2.
+                  </p>
+                </div>
+                <p className="flex items-start gap-2 text-sm text-charcoal/65">
+                  <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-cajun-red" />
+                  Flavors can rotate, so call if you&apos;re chasing a specific one.
+                </p>
               </div>
 
-              <div className="bg-white rounded-lg shadow-sm p-6">
-                {drinks.map((item) => (
-                  <div key={item.id} className="flex items-center justify-between">
-                    <div>
-                      <h3 className="text-lg font-semibold text-charcoal">{item.name}</h3>
-                      <p className="text-charcoal/70 text-sm">{item.description}</p>
-                    </div>
-                    <span className="text-xl font-bold text-cajun-red">${item.price}</span>
+              <div className="rounded-3xl bg-white p-6 md:p-8">
+                <h3 className="type-card-title text-charcoal">Available flavors</h3>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  {snowballFlavors.map((flavor) => (
+                    <span
+                      key={flavor}
+                      className="rounded-full border border-charcoal/10 bg-cream px-4 py-2 text-sm font-medium text-charcoal"
+                    >
+                      {flavor}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white py-16 md:py-20">
+          <div className="container mx-auto px-4">
+            <div className="grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)]">
+              <div className="space-y-4">
+                <p className="type-kicker text-cajun-red">Drinks and extras</p>
+                <h2 className="type-section-title text-charcoal">
+                  Keep the supporting items simple and easy to scan.
+                </h2>
+                <p className="type-body text-charcoal/75">
+                  The main plates should carry the page. Drinks and rotating extras should support
+                  them without turning into more boxed UI.
+                </p>
+              </div>
+
+              <div className="grid gap-8 md:grid-cols-[minmax(220px,0.55fr)_minmax(0,1.45fr)]">
+                <div className="border-t border-charcoal/15 pt-5">
+                  <h3 className="type-card-title text-charcoal">Drinks</h3>
+                  <div className="mt-5 space-y-4">
+                    {drinks.map((item) => (
+                      <div key={item.id} className="flex items-start justify-between gap-4">
+                        <div>
+                          <p className="type-card-title text-charcoal">{item.name}</p>
+                          <p className="type-meta mt-1 text-charcoal/65">{item.description}</p>
+                        </div>
+                        <span className="text-xl font-semibold text-cajun-red">${item.price}</span>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
+
+                <div className="border-t border-charcoal/15 pt-5">
+                  <h3 className="type-card-title text-charcoal">Also ask about</h3>
+                  <p className="type-meta mt-2 text-charcoal/65">
+                    These show up at pop-ups and catering runs throughout the season.
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-3">
+                    {additionalItems.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full bg-cream px-4 py-2 text-sm font-medium text-charcoal"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Also Available Section */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="bg-cajun-red py-16 md:py-20 text-white">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl">
-              <h2 className="text-2xl md:text-3xl font-serif font-bold text-charcoal mb-4">
-                Also Seen at Pop-Ups & Catering
-              </h2>
-              <p className="text-charcoal/70 mb-8">
-                We often feature these items at events and catering. Ask about availability!
-              </p>
-              <div className="flex flex-wrap gap-3">
-                {additionalItems.map((item) => (
-                  <span
-                    key={item}
-                    className="px-4 py-2 bg-cream rounded-full text-charcoal font-medium"
-                  >
-                    {item}
-                  </span>
-                ))}
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+              <div className="space-y-4">
+                <p className="type-kicker text-white/75">Ready to order?</p>
+                <h2 className="type-section-title max-w-2xl text-white">
+                  Keep the next move obvious: either find the stop or book the event.
+                </h2>
+                <p className="type-body max-w-xl text-white/85">
+                  Call ahead for a large pickup, find the current location, or move straight into a
+                  catering quote if this needs to feed a room.
+                </p>
               </div>
-            </div>
-          </div>
-        </section>
 
-        {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-cajun-red text-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-2xl">
-              <p className="text-white/80 font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
-                Ready to Order?
-              </p>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-                Visit us or book catering for your next event
-              </h2>
-              <p className="text-white/90 mb-8">
-                Visit us at our current location or call ahead for large orders. 
-                Planning an event? Let us cater your next celebration!
-              </p>
-              <div className="flex flex-col sm:flex-row items-start gap-4">
+              <div className="flex flex-col items-start gap-4">
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gold hover:bg-gold-light text-charcoal font-semibold rounded-full"
+                  className="w-full rounded-full bg-white text-cajun-red hover:bg-cream"
                 >
                   <Link href="/catering">Book Catering</Link>
                 </Button>
@@ -286,12 +379,19 @@ export default function MenuPage() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white text-white hover:bg-white hover:text-cajun-red rounded-full"
+                  className="w-full rounded-full border-2 border-white text-white hover:bg-white hover:text-cajun-red"
                 >
                   <a href="tel:+16025968036" className="flex items-center gap-2">
                     <Phone className="h-5 w-5" />
                     Call (602) 596-8036
                   </a>
+                </Button>
+                <Button
+                  asChild
+                  variant="link"
+                  className="h-auto p-0 text-white hover:text-cream"
+                >
+                  <Link href="/find-us">See locations and hours</Link>
                 </Button>
               </div>
             </div>

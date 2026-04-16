@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Star } from 'lucide-react'
+import { ArrowRight, Star } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const testimonials = [
@@ -53,77 +53,63 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export function Testimonials() {
+  const [featuredTestimonial, ...supportingTestimonials] = testimonials
+
   return (
-    <section className="py-16 md:py-24 bg-charcoal-light">
+    <section className="bg-cream-dark py-16 md:py-24">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="mb-12">
-          <p className="text-gold font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
-            What Customers Are Saying
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-cream mb-4 leading-tight max-w-2xl">
-            Real reviews from real customers
-          </h2>
-          
-          {/* Overall Rating from Yelp */}
-          <div className="flex items-center gap-4 mt-6">
-            <div className="flex gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className={`h-6 w-6 ${
-                    i < 4
-                      ? 'fill-gold text-gold'
-                      : i < 5 ? 'fill-gold/50 text-gold/50' : 'fill-charcoal-medium text-charcoal-medium'
-                  }`}
-                />
-              ))}
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(280px,0.95fr)] lg:items-start">
+          <div className="space-y-6 border-t border-charcoal/15 pt-6">
+            <div className="space-y-4">
+              <p className="type-kicker text-cajun-red">What customers are saying</p>
+              <h2 className="type-section-title max-w-2xl text-charcoal">
+                Real reviews from people who came for the food and stayed for the way they were treated.
+              </h2>
+              <div className="flex items-center gap-3">
+                <StarRating rating={featuredTestimonial.rating} />
+                <span className="type-meta text-charcoal/65">4.5 stars on Yelp</span>
+              </div>
             </div>
-            <span className="text-cream/70 text-sm">4.5 stars on Yelp</span>
-          </div>
-        </div>
 
-        {/* Testimonial Cards */}
-        <div className="flex gap-6 overflow-x-auto pb-4 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 scrollbar-hide">
-          {testimonials.map((testimonial) => (
-            <div
-              key={testimonial.id}
-              className="flex-shrink-0 w-[300px] md:w-auto bg-charcoal rounded-xl p-6 shadow-xl shadow-black/30 border border-charcoal-medium"
-            >
-              {/* Header */}
-              <div className="flex items-start gap-3 mb-4">
-                <div className="w-10 h-10 bg-cajun-red rounded-full flex items-center justify-center text-white font-semibold shadow-md shadow-cajun-red/30">
-                  {testimonial.name.charAt(0)}
-                </div>
-                <div>
-                  <p className="font-semibold text-cream">{testimonial.name}</p>
-                  <p className="text-xs text-cream/50">{testimonial.location}</p>
-                </div>
-              </div>
-
-              {/* Rating & Date */}
-              <div className="flex items-center gap-2 mb-3">
-                <StarRating rating={testimonial.rating} />
-                <span className="text-xs text-cream/50">{testimonial.date}</span>
-              </div>
-              
-              {/* Content */}
-              <p className="text-cream/90 text-sm leading-relaxed">
-                {testimonial.content}
+            <blockquote className="space-y-5">
+              <p className="type-lead text-charcoal">
+                &ldquo;{featuredTestimonial.content}&rdquo;
               </p>
-            </div>
-          ))}
-        </div>
+              <footer className="border-t border-charcoal/10 pt-4">
+                <p className="type-card-title text-charcoal">{featuredTestimonial.name}</p>
+                <p className="type-meta mt-1 text-charcoal/65">
+                  {featuredTestimonial.location} • {featuredTestimonial.date}
+                </p>
+              </footer>
+            </blockquote>
+          </div>
 
-        {/* CTA */}
-        <div className="mt-10">
-          <Button
-            asChild
-            variant="outline"
-            className="border-2 border-gold text-gold hover:bg-gold hover:text-charcoal rounded-full"
-          >
-            <Link href="/reviews">Read More Reviews</Link>
-          </Button>
+          <div className="space-y-6">
+            {supportingTestimonials.map((testimonial) => (
+              <article key={testimonial.id} className="border-t border-charcoal/15 pt-5">
+                <div className="flex items-center gap-3">
+                  <StarRating rating={testimonial.rating} />
+                  <span className="type-meta text-charcoal/55">{testimonial.date}</span>
+                </div>
+                <p className="type-meta mt-3 text-base leading-relaxed text-charcoal/75">
+                  &ldquo;{testimonial.content}&rdquo;
+                </p>
+                <p className="type-card-title mt-4 text-charcoal">{testimonial.name}</p>
+                <p className="type-meta mt-1 text-charcoal/60">{testimonial.location}</p>
+              </article>
+            ))}
+
+            <Button
+              asChild
+              variant="outline"
+              className="rounded-full border-charcoal text-charcoal hover:bg-charcoal hover:text-cream"
+            >
+              <Link href="/reviews" className="flex items-center gap-2">
+                Read more reviews
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     </section>

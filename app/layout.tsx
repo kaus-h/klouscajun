@@ -1,24 +1,17 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Playfair_Display, Bebas_Neue } from 'next/font/google'
+import { Bricolage_Grotesque, Source_Sans_3 } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const inter = Inter({ 
+const sourceSans = Source_Sans_3({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-source-sans',
   display: 'swap',
 })
 
-const playfair = Playfair_Display({ 
+const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
-  variable: '--font-playfair',
-  display: 'swap',
-})
-
-const bebasNeue = Bebas_Neue({ 
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-bebas',
+  variable: '--font-bricolage',
   display: 'swap',
 })
 
@@ -100,7 +93,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} ${bebasNeue.variable} bg-background`}>
+    <html lang="en" className={`${sourceSans.variable} ${bricolage.variable} bg-background`}>
       <head>
         <script
           type="application/ld+json"

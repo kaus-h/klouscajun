@@ -65,14 +65,14 @@ export default function AboutPage() {
             />
           </div>
           <div className="relative container mx-auto px-4 text-center">
-            <p className="text-gold font-display text-sm md:text-base tracking-wider mb-2">
+            <p className="type-kicker text-gold mb-2">
               OUR STORY
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
+            <h1 className="type-page-title mb-6">
               30 Years of{' '}
               <span className="text-gold">Louisiana Flavor</span>
             </h1>
-            <p className="text-cream/90 max-w-2xl mx-auto text-lg">
+            <p className="type-lead text-cream/90 mx-auto">
               Bringing authentic Cajun & Creole cuisine from the bayou to Arizona, 
               one plate at a time.
             </p>
@@ -94,18 +94,18 @@ export default function AboutPage() {
                   />
                 </div>
                 <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 bg-cajun-red text-white p-4 md:p-6 rounded-lg shadow-xl">
-                  <p className="font-display text-2xl md:text-3xl">30+</p>
+                  <p className="text-2xl md:text-3xl font-semibold tracking-[-0.04em]">30+</p>
                   <p className="text-sm">Years of Experience</p>
                 </div>
               </div>
 
               {/* Content */}
               <div>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-charcoal mb-6">
+                <h2 className="type-section-title text-charcoal mb-6">
                   From Louisiana With Love
                 </h2>
                 
-                <div className="space-y-4 text-charcoal/80 leading-relaxed">
+                <div className="type-body space-y-4 text-charcoal/80">
                   <p>
                     K.Lou&apos;s Cajun Shack & Catering was born from a deep love of authentic 
                     Louisiana cuisine and a passion for sharing that flavor with Arizona. Owner 
@@ -152,7 +152,7 @@ export default function AboutPage() {
         <section className="py-16 md:py-24 bg-charcoal text-cream">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+              <h2 className="type-section-title mb-4">
                 Why People Keep Coming Back
               </h2>
               <p className="text-cream/70 max-w-xl mx-auto">
@@ -183,7 +183,7 @@ export default function AboutPage() {
         <section className="py-16 md:py-24 bg-cream">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-charcoal mb-8">
+              <h2 className="type-section-title text-charcoal mb-8">
                 Our Promise to You
               </h2>
               
@@ -201,7 +201,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <p className="text-gold font-display text-xl md:text-2xl mt-10">
+              <p className="text-gold text-xl md:text-2xl mt-10 font-semibold tracking-[-0.03em]">
                 &ldquo;Come Hungry, Leave Happy&rdquo;
               </p>
             </div>
@@ -211,7 +211,7 @@ export default function AboutPage() {
         {/* CTA Section */}
         <section className="py-16 md:py-20 bg-cajun-red text-white">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+            <h2 className="type-section-title mb-4">
               Ready to Experience the Flavor?
             </h2>
             <p className="text-white/90 max-w-xl mx-auto mb-8">

@@ -1,7 +1,6 @@
 import Link from 'next/link'
-import { MapPin, Clock, Calendar, Navigation, Phone } from 'lucide-react'
+import { Calendar, Clock, MapPin, Navigation, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 const currentLocation = {
   name: '615 S Hardy Dr',
@@ -29,51 +28,44 @@ const upcomingEvents = [
 ]
 
 export function LocationModule() {
-  return (
-    <section className="py-16 md:py-24 bg-charcoal-light">
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="mb-12">
-          <p className="text-gold font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
-            Find Us
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-cream mb-4 leading-tight">
-            Where to get your fix
-          </h2>
-          <p className="text-cream/90 max-w-xl">
-            Catch us at our regular locations or check our upcoming pop-up events.
-          </p>
-        </div>
+  const weeklyHours = [
+    { days: 'Monday - Thursday', hours: '10:30 AM - 5:30 PM' },
+    { days: 'Friday - Saturday', hours: '11:00 AM - 5:30 PM' },
+    { days: 'Sunday', hours: 'Closed' },
+  ]
 
-        <div className="grid lg:grid-cols-3 gap-6 max-w-5xl">
-          {/* Current Location Card */}
-          <Card className="lg:col-span-2 bg-charcoal border-charcoal-medium shadow-xl shadow-black/30 overflow-hidden">
-            <CardHeader className="bg-cajun-red text-white p-6">
-              <div className="flex items-center justify-between">
-                <CardTitle className="font-serif text-2xl flex items-center gap-3">
-                  <MapPin className="h-6 w-6" />
-                  Current Location
-                </CardTitle>
-                <span className="px-3 py-1 bg-gold text-charcoal font-semibold text-sm rounded shadow-md">
-                  {currentLocation.status}
-                </span>
-              </div>
-            </CardHeader>
-            <CardContent className="p-6">
-              <h3 className="text-xl font-bold text-cream mb-2">
-                {currentLocation.name}
-              </h3>
-              <p className="text-cream/80 mb-4">
-                {currentLocation.address}
+  return (
+    <section className="bg-white py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_360px] lg:items-start">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <p className="type-kicker text-cajun-red">Find us</p>
+              <h2 className="type-section-title max-w-2xl text-charcoal">
+                Make the food stop easy to understand before people start scrolling.
+              </h2>
+              <p className="type-body max-w-xl text-charcoal/75">
+                The current location needs to be immediate. The pop-up schedule should support it,
+                not compete with it.
               </p>
-              <div className="flex items-center gap-2 text-cream mb-6">
-                <Clock className="h-5 w-5 text-gold" />
-                <span className="font-medium">{currentLocation.hours}</span>
+            </div>
+
+            <article className="border-t border-charcoal/15 pt-6">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                <div className="space-y-2">
+                  <p className="type-kicker text-cajun-red/80">{currentLocation.status}</p>
+                  <h3 className="type-section-title text-charcoal">{currentLocation.name}</h3>
+                  <p className="type-body text-charcoal/75">{currentLocation.address}</p>
+                </div>
+                <p className="rounded-full bg-cajun-red px-4 py-2 text-sm font-semibold text-white">
+                  {currentLocation.hours}
+                </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-3">
+
+              <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                 <Button
                   asChild
-                  className="bg-gold hover:bg-gold-light text-charcoal rounded-full shadow-lg shadow-gold/30"
+                  className="rounded-full bg-charcoal text-cream hover:bg-charcoal-light"
                 >
                   <a
                     href={currentLocation.mapLink}
@@ -82,62 +74,76 @@ export function LocationModule() {
                     className="flex items-center gap-2"
                   >
                     <Navigation className="h-4 w-4" />
-                    Get Directions
+                    Get directions
                   </a>
                 </Button>
                 <Button
                   asChild
                   variant="outline"
-                  className="border-cream text-cream hover:bg-cream hover:text-charcoal rounded-full"
+                  className="rounded-full border-charcoal text-charcoal hover:bg-charcoal hover:text-cream"
                 >
                   <a href="tel:+16025968036" className="flex items-center gap-2">
                     <Phone className="h-4 w-4" />
-                    Call Ahead
+                    Call ahead
                   </a>
                 </Button>
               </div>
-            </CardContent>
-          </Card>
+            </article>
 
-          {/* Upcoming Events */}
-          <Card className="bg-charcoal border-charcoal-medium shadow-xl shadow-black/30">
-            <CardHeader className="bg-charcoal-medium text-cream p-6">
-              <CardTitle className="font-serif text-xl flex items-center gap-3">
-                <Calendar className="h-5 w-5 text-gold" />
-                Schedule
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="p-0">
-              {upcomingEvents.map((event, index) => (
+            <div className="grid gap-6 md:grid-cols-2">
+              {upcomingEvents.map((event) => (
+                <article key={event.id} className="border-t border-charcoal/15 pt-5">
+                  <p className="type-kicker text-cajun-red/80">{event.date}</p>
+                  <h3 className="type-card-title mt-2 text-charcoal">{event.name}</h3>
+                  <p className="type-meta mt-2 text-charcoal/75">{event.address}</p>
+                  <p className="type-meta mt-3 text-charcoal/65">{event.time}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <aside className="rounded-3xl bg-charcoal p-8 text-cream">
+            <div className="flex items-center gap-3">
+              <Calendar className="h-5 w-5 text-gold" />
+              <p className="type-card-title text-cream">Weekly schedule</p>
+            </div>
+
+            <div className="mt-6 space-y-4">
+              {weeklyHours.map((schedule) => (
                 <div
-                  key={event.id}
-                  className={`p-4 ${
-                    index !== upcomingEvents.length - 1 ? 'border-b border-charcoal-medium' : ''
-                  }`}
+                  key={schedule.days}
+                  className="flex items-center justify-between gap-4 border-t border-cream/10 pt-4 first:border-t-0 first:pt-0"
                 >
-                  <p className="font-semibold text-cream">{event.name}</p>
-                  <p className="text-sm text-cream/70">{event.address}</p>
-                  <div className="flex items-center gap-2 mt-2 text-sm">
-                    <span className="px-2 py-0.5 bg-gold/20 text-gold text-xs font-medium rounded">
-                      {event.date}
-                    </span>
-                    <span className="text-cream/70">{event.time}</span>
+                  <div className="flex items-center gap-2 text-sm text-cream/75">
+                    <Clock className="h-4 w-4 text-gold" />
+                    <span>{schedule.days}</span>
                   </div>
+                  <span
+                    className={schedule.hours === 'Closed' ? 'text-sm text-cream/45' : 'text-sm font-semibold text-gold'}
+                  >
+                    {schedule.hours}
+                  </span>
                 </div>
               ))}
-            </CardContent>
-          </Card>
-        </div>
+            </div>
 
-        {/* CTA */}
-        <div className="mt-10">
-          <Button
-            asChild
-            variant="outline"
-            className="border-2 border-gold text-gold hover:bg-gold hover:text-charcoal rounded-full"
-          >
-            <Link href="/find-us">View All Locations & Hours</Link>
-          </Button>
+            <div className="mt-8 border-t border-cream/10 pt-6">
+              <p className="type-meta text-cream/70">
+                Hours can shift with pop-up schedules and larger events. If you&apos;re making the
+                trip, call first and we&apos;ll point you the right way.
+              </p>
+              <Button
+                asChild
+                variant="link"
+                className="mt-4 h-auto p-0 text-gold hover:text-gold-light"
+              >
+                <Link href="/find-us" className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4" />
+                  View all locations and hours
+                </Link>
+              </Button>
+            </div>
+          </aside>
         </div>
       </div>
     </section>

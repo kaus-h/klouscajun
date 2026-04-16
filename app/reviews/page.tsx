@@ -1,12 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Star, Quote, ExternalLink } from 'lucide-react'
+import { ExternalLink, Quote, Star } from 'lucide-react'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import { StickyCTABar } from '@/components/sticky-cta-bar'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 
 export const metadata: Metadata = {
   title: 'Reviews',
@@ -98,13 +96,14 @@ const reviews = [
 
 function StarRating({ rating, size = 'sm' }: { rating: number; size?: 'sm' | 'lg' }) {
   const starSize = size === 'lg' ? 'h-6 w-6' : 'h-4 w-4'
+
   return (
     <div className="flex gap-0.5">
-      {[...Array(5)].map((_, i) => (
+      {[...Array(5)].map((_, index) => (
         <Star
-          key={i}
+          key={index}
           className={`${starSize} ${
-            i < rating ? 'fill-gold text-gold' : 'fill-gray-200 text-gray-200'
+            index < rating ? 'fill-gold text-gold' : 'fill-gray-200 text-gray-200'
           }`}
         />
       ))}
@@ -115,158 +114,187 @@ function StarRating({ rating, size = 'sm' }: { rating: number; size?: 'sm' | 'lg
 export default function ReviewsPage() {
   const averageRating = 4.9
   const totalReviews = reviews.length
-  const fiveStarCount = reviews.filter(r => r.rating === 5).length
-  const fourStarCount = reviews.filter(r => r.rating === 4).length
+  const fiveStarCount = reviews.filter((review) => review.rating === 5).length
+  const fourStarCount = reviews.filter((review) => review.rating === 4).length
+  const [primaryReview, ...remainingReviews] = reviews
+  const longformReviews = remainingReviews.slice(0, 4)
+  const sidebarReviews = remainingReviews.slice(4)
 
   return (
     <>
       <Navigation />
       <main className="pt-16 md:pt-20 pb-20 lg:pb-0">
-        {/* Hero Section */}
-        <section className="py-16 md:py-24 bg-charcoal text-cream">
-          <div className="container mx-auto px-4 text-center">
-            <p className="text-gold font-display text-sm md:text-base tracking-wider mb-2">
-              TESTIMONIALS
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
-              What Our Customers Say
-            </h1>
-            
-            {/* Overall Rating Display */}
-            <div className="flex flex-col items-center gap-4 mt-8">
-              <div className="flex items-center gap-4">
-                <span className="text-5xl md:text-6xl font-bold text-gold">{averageRating}</span>
-                <div className="text-left">
-                  <StarRating rating={Math.round(averageRating)} size="lg" />
-                  <p className="text-cream/70 mt-1">Based on {totalReviews}+ reviews</p>
+        <section className="relative overflow-hidden bg-cream py-16 md:py-24">
+          <div className="absolute inset-x-0 top-0 h-56 bg-gradient-to-b from-gold/20 to-transparent pointer-events-none" />
+          <div className="absolute left-0 top-8 h-72 w-72 rounded-full bg-cajun-red/10 blur-3xl pointer-events-none" />
+
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <p className="type-kicker text-cajun-red">Testimonials</p>
+                  <h1 className="type-page-title max-w-[12ch] text-charcoal">
+                    Let the proof feel human instead of boxed into one repeated grid.
+                  </h1>
+                  <p className="type-lead max-w-2xl text-charcoal/80">
+                    The strongest reviews say the same thing in different ways: authentic food,
+                    generous portions, friendly service, and catering people trust with real events.
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap items-end gap-5 border-t border-charcoal/15 pt-5">
+                  <div>
+                    <p className="text-5xl font-semibold tracking-tight text-cajun-red md:text-6xl">
+                      {averageRating}
+                    </p>
+                  </div>
+                  <div className="space-y-2">
+                    <StarRating rating={Math.round(averageRating)} size="lg" />
+                    <p className="type-meta text-charcoal/65">
+                      Based on {totalReviews} featured reviews on this page
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-6 text-sm text-charcoal/70">
+                  <div className="flex items-center gap-2">
+                    <StarRating rating={5} />
+                    <span>{fiveStarCount} five-star reviews</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <StarRating rating={4} />
+                    <span>{fourStarCount} four-star reviews</span>
+                  </div>
                 </div>
               </div>
+
+              <article className="rounded-3xl bg-white p-8 shadow-xl shadow-charcoal/5">
+                <Quote className="h-10 w-10 text-cajun-red/20" />
+                <p className="type-lead mt-6 text-charcoal">
+                  &ldquo;{primaryReview.content}&rdquo;
+                </p>
+                <div className="mt-6 border-t border-charcoal/10 pt-4">
+                  <div className="flex items-center gap-3">
+                    <StarRating rating={primaryReview.rating} />
+                    <span className="type-meta text-charcoal/55">{primaryReview.date}</span>
+                  </div>
+                  <p className="type-card-title mt-4 text-charcoal">{primaryReview.name}</p>
+                  <p className="type-meta mt-1 text-charcoal/60">{primaryReview.highlight}</p>
+                </div>
+              </article>
             </div>
           </div>
         </section>
 
-        {/* Rating Breakdown */}
-        <section className="bg-cream-dark py-8">
+        <section className="bg-white py-16 md:py-20">
           <div className="container mx-auto px-4">
-            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12">
-              <div className="flex items-center gap-2">
-                <StarRating rating={5} />
-                <span className="text-charcoal font-medium">{fiveStarCount} reviews</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <StarRating rating={4} />
-                <span className="text-charcoal font-medium">{fourStarCount} reviews</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Reviews Grid */}
-        <section className="py-16 md:py-20 bg-cream">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              {reviews.map((review) => (
-                <Card 
-                  key={review.id} 
-                  className="bg-white border-0 shadow-md hover:shadow-lg transition-shadow"
-                >
-                  <CardContent className="p-6">
-                    <Quote className="h-8 w-8 text-cajun-red/20 mb-4" />
-                    
-                    <p className="text-charcoal/80 leading-relaxed mb-6">
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+              <div className="space-y-8">
+                {longformReviews.map((review) => (
+                  <article key={review.id} className="border-t border-charcoal/15 pt-6">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <StarRating rating={review.rating} />
+                      <span className="type-meta text-charcoal/55">{review.date}</span>
+                      <span className="rounded-full bg-cream px-3 py-1 text-xs font-semibold text-charcoal/75">
+                        {review.highlight}
+                      </span>
+                    </div>
+                    <p className="type-body mt-4 text-charcoal/75">
                       &ldquo;{review.content}&rdquo;
                     </p>
+                    <p className="type-card-title mt-4 text-charcoal">{review.name}</p>
+                  </article>
+                ))}
+              </div>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                      <div>
-                        <p className="font-semibold text-charcoal">{review.name}</p>
-                        <p className="text-sm text-muted-foreground">{review.date}</p>
-                      </div>
-                      <div className="flex flex-col items-end gap-2">
+              <aside className="space-y-8">
+                <div className="rounded-3xl bg-charcoal p-8 text-cream">
+                  <h2 className="type-card-title text-cream">Leave a review</h2>
+                  <p className="type-meta mt-3 text-cream/75">
+                    Loved the food or the catering experience? Help the next customer feel more
+                    confident before they call.
+                  </p>
+                  <div className="mt-6 flex flex-col gap-3">
+                    <Button
+                      asChild
+                      size="lg"
+                      className="rounded-full bg-gold text-charcoal hover:bg-gold-light"
+                    >
+                      <a
+                        href="https://www.google.com/search?q=K.Lou's+Cajun+Shack+Phoenix"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <ExternalLink className="h-5 w-5" />
+                        Review on Google
+                      </a>
+                    </Button>
+                    <Button
+                      asChild
+                      size="lg"
+                      variant="outline"
+                      className="rounded-full border-cream text-cream hover:bg-cream hover:text-charcoal"
+                    >
+                      <a
+                        href="https://www.yelp.com/search?find_desc=K.Lou's+Cajun+Shack&find_loc=Phoenix"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <ExternalLink className="h-5 w-5" />
+                        Review on Yelp
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="space-y-6">
+                  {sidebarReviews.map((review) => (
+                    <article key={review.id} className="border-t border-charcoal/15 pt-5">
+                      <p className="type-kicker text-cajun-red/80">{review.highlight}</p>
+                      <p className="type-meta mt-3 text-charcoal/70">
+                        &ldquo;{review.content}&rdquo;
+                      </p>
+                      <div className="mt-4 flex items-center justify-between gap-4">
+                        <p className="type-card-title text-charcoal">{review.name}</p>
                         <StarRating rating={review.rating} />
-                        <Badge variant="secondary" className="bg-gold/20 text-charcoal text-xs">
-                          {review.highlight}
-                        </Badge>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                    </article>
+                  ))}
+                </div>
+              </aside>
             </div>
           </div>
         </section>
 
-        {/* Leave a Review CTA */}
-        <section className="py-16 md:py-20 bg-charcoal text-cream">
+        <section className="bg-cajun-red py-16 md:py-20 text-white">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-              Love Our Food?
-            </h2>
-            <p className="text-cream/80 max-w-xl mx-auto mb-8">
-              We&apos;d love to hear from you! Leave us a review and let others know 
-              about your K.Lou&apos;s experience.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-gold text-charcoal hover:bg-gold-light"
-              >
-                <a 
-                  href="https://www.google.com/search?q=K.Lou's+Cajun+Shack+Phoenix" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2"
+            <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:text-left">
+              <div>
+                <h2 className="type-section-title text-white">Ready to try us?</h2>
+                <p className="type-body mt-3 max-w-xl text-white/85">
+                  Use the menu if you&apos;re looking for today&apos;s food. Jump to catering if you need
+                  to feed a room and want that same trust to carry through the event.
+                </p>
+              </div>
+              <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-end">
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-full bg-white text-cajun-red hover:bg-cream"
                 >
-                  <ExternalLink className="h-5 w-5" />
-                  Review on Google
-                </a>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-cream text-cream hover:bg-cream hover:text-charcoal"
-              >
-                <a 
-                  href="https://www.yelp.com/search?find_desc=K.Lou's+Cajun+Shack&find_loc=Phoenix" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2"
+                  <Link href="/menu">View menu</Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full border-2 border-white text-white hover:bg-white hover:text-cajun-red"
                 >
-                  <ExternalLink className="h-5 w-5" />
-                  Review on Yelp
-                </a>
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-cajun-red text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-              Ready to Try Us?
-            </h2>
-            <p className="text-white/90 max-w-xl mx-auto mb-8">
-              See why our customers keep coming back for more authentic Cajun flavor.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-white text-cajun-red hover:bg-cream font-semibold"
-              >
-                <Link href="/menu">View Menu</Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-cajun-red"
-              >
-                <Link href="/catering">Book Catering</Link>
-              </Button>
+                  <Link href="/catering">Book catering</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </section>

@@ -33,13 +33,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <p className="text-gold font-semibold text-xs tracking-[0.15em] uppercase mb-3">
+            <p className="type-kicker text-gold mb-3">
               K.Lou&apos;s Cajun Shack & Catering
             </p>
-            <h3 className="font-serif text-3xl md:text-4xl font-bold text-cream mb-4 leading-tight">
+            <h3 className="type-section-title text-cream mb-4">
               Come hungry.<br />Leave happy.
             </h3>
-            <p className="text-cream/90 text-sm leading-relaxed mb-6">
+            <p className="type-body text-cream/90 mb-6">
               Pop-up Cajun plates, crawfish season, and catering that feels like somebody 
               in the family made sure your event ate well.
             </p>
@@ -77,7 +77,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-serif text-xl font-semibold mb-6 text-gold">
+            <h4 className="type-card-title text-gold mb-6">
               Quick Links
             </h4>
             <div className="grid grid-cols-2 gap-x-8 gap-y-3">
@@ -86,7 +86,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-cream hover:text-gold transition-colors text-sm flex items-center gap-2"
+                      className="text-cream hover:text-gold transition-colors text-[0.98rem] flex items-center gap-2"
                     >
                       <span className="w-1.5 h-1.5 bg-cajun-red rounded-full" />
                       {link.label}
@@ -99,7 +99,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-cream hover:text-gold transition-colors text-sm flex items-center gap-2"
+                      className="text-cream hover:text-gold transition-colors text-[0.98rem] flex items-center gap-2"
                     >
                       <span className="w-1.5 h-1.5 bg-cajun-red rounded-full" />
                       {link.label}
@@ -112,12 +112,12 @@ export function Footer() {
 
           {/* Hours */}
           <div>
-            <h4 className="font-serif text-xl font-semibold mb-6 text-gold">
+            <h4 className="type-card-title text-gold mb-6">
               Hours
             </h4>
             <ul className="space-y-3">
               {operatingHours.map((schedule) => (
-                <li key={schedule.days} className="flex justify-between text-sm">
+                <li key={schedule.days} className="flex justify-between text-[0.98rem]">
                   <span className="text-cream">{schedule.days}</span>
                   <span className="text-cream/80">{schedule.hours}</span>
                 </li>
@@ -127,7 +127,7 @@ export function Footer() {
 
           {/* Follow Along */}
           <div>
-            <h4 className="font-serif text-xl font-semibold mb-6 text-gold">
+            <h4 className="type-card-title text-gold mb-6">
               Follow Along
             </h4>
             <div className="flex gap-4">
@@ -136,7 +136,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex items-center gap-2 text-cream hover:text-gold transition-colors"
+                className="flex items-center gap-2 text-cream hover:text-gold transition-colors text-[0.98rem]"
               >
                 <Instagram className="h-5 w-5" />
                 <span className="text-sm">Instagram</span>
@@ -146,7 +146,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="flex items-center gap-2 text-cream hover:text-gold transition-colors"
+                className="flex items-center gap-2 text-cream hover:text-gold transition-colors text-[0.98rem]"
               >
                 <Facebook className="h-5 w-5" />
                 <span className="text-sm">Facebook</span>
@@ -159,7 +159,7 @@ export function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-charcoal-medium">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-cream/60">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-[0.95rem] text-cream/60">
             <p>
               &copy; {new Date().getFullYear()} K.Lou&apos;s Cajun Shack & Catering, LLC. All rights reserved.
             </p>

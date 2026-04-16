@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { X, ChevronLeft, ChevronRight } from 'lucide-react'
+import Link from 'next/link'
+import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const galleryImages = [
@@ -50,6 +51,26 @@ const galleryImages = [
   },
 ]
 
+const layoutClasses = [
+  'col-span-2 md:col-span-7',
+  'col-span-1 md:col-span-5',
+  'col-span-1 md:col-span-4',
+  'col-span-1 md:col-span-4',
+  'col-span-2 md:col-span-4',
+  'col-span-1 md:col-span-5',
+  'col-span-1 md:col-span-7',
+]
+
+const aspectClasses = [
+  'aspect-[4/3] md:aspect-[16/11]',
+  'aspect-[4/3] md:aspect-[4/5]',
+  'aspect-square md:aspect-[5/4]',
+  'aspect-square md:aspect-[5/4]',
+  'aspect-[4/3] md:aspect-[16/11]',
+  'aspect-[4/3] md:aspect-[4/5]',
+  'aspect-[4/3] md:aspect-[16/11]',
+]
+
 export function Gallery() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -74,73 +95,76 @@ export function Gallery() {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-charcoal">
+    <section className="bg-white py-16 md:py-24">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="mb-12">
-          <p className="text-gold font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
-            Eat With Your Eyes
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-cream mb-4 leading-tight">
-            Photo Gallery
-          </h2>
-          <p className="text-cream/90 max-w-xl">
-            Take a look at our authentic Cajun dishes and catering setups.
-          </p>
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="space-y-4">
+            <p className="type-kicker text-cajun-red">Eat with your eyes</p>
+            <h2 className="type-section-title max-w-2xl text-charcoal">
+              Food photography should feel like appetite, not a row of identical thumbnails.
+            </h2>
+            <p className="type-body max-w-xl text-charcoal/75">
+              The dishes already have personality. The layout should let them breathe instead of
+              forcing them into one repeated square.
+            </p>
+          </div>
+
+          <Button
+            asChild
+            variant="outline"
+            className="self-start rounded-full border-charcoal text-charcoal hover:bg-charcoal hover:text-cream"
+          >
+            <Link href="/menu">See the menu</Link>
+          </Button>
         </div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+        <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-12 md:gap-4">
           {galleryImages.map((image, index) => (
             <button
               key={image.id}
               onClick={() => openLightbox(index)}
-              className="group relative aspect-square overflow-hidden rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-charcoal shadow-lg shadow-black/30"
+              className={`group relative overflow-hidden rounded-3xl bg-charcoal focus:outline-none focus:ring-2 focus:ring-cajun-red focus:ring-offset-2 focus:ring-offset-white ${layoutClasses[index]} ${aspectClasses[index]}`}
             >
               <Image
                 src={image.src}
                 alt={image.alt}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 768px) 50vw, 33vw"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 flex items-end justify-center">
-                <span className="text-white font-medium text-sm pb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {image.caption}
-                </span>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-4 text-left">
+                <span className="type-card-title text-white">{image.caption}</span>
               </div>
             </button>
           ))}
         </div>
       </div>
 
-      {/* Lightbox */}
       {lightboxOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
           onClick={closeLightbox}
           role="dialog"
           aria-modal="true"
           aria-label="Image gallery lightbox"
         >
-          {/* Close Button */}
           <Button
             variant="ghost"
             size="icon"
-            className="absolute top-4 right-4 text-white hover:bg-white/10 z-10"
+            className="absolute top-4 right-4 z-10 text-white hover:bg-white/10"
             onClick={closeLightbox}
             aria-label="Close lightbox"
           >
             <X className="h-8 w-8" />
           </Button>
 
-          {/* Previous Button */}
           <Button
             variant="ghost"
             size="icon"
-            className="absolute left-4 text-white hover:bg-white/10 z-10"
-            onClick={(e) => {
-              e.stopPropagation()
+            className="absolute left-4 z-10 text-white hover:bg-white/10"
+            onClick={(event) => {
+              event.stopPropagation()
               goToPrevious()
             }}
             aria-label="Previous image"
@@ -148,10 +172,9 @@ export function Gallery() {
             <ChevronLeft className="h-10 w-10" />
           </Button>
 
-          {/* Image */}
           <div
-            className="relative w-full max-w-4xl max-h-[80vh] aspect-video mx-4"
-            onClick={(e) => e.stopPropagation()}
+            className="relative aspect-video max-h-[80vh] w-full max-w-4xl mx-4"
+            onClick={(event) => event.stopPropagation()}
           >
             <Image
               src={galleryImages[currentIndex].src}
@@ -161,18 +184,17 @@ export function Gallery() {
               sizes="100vw"
               priority
             />
-            <p className="absolute bottom-0 left-0 right-0 text-center text-white bg-black/70 py-3 font-medium">
+            <p className="absolute inset-x-0 bottom-0 bg-black/70 py-3 text-center font-medium text-white">
               {galleryImages[currentIndex].caption}
             </p>
           </div>
 
-          {/* Next Button */}
           <Button
             variant="ghost"
             size="icon"
-            className="absolute right-4 text-white hover:bg-white/10 z-10"
-            onClick={(e) => {
-              e.stopPropagation()
+            className="absolute right-4 z-10 text-white hover:bg-white/10"
+            onClick={(event) => {
+              event.stopPropagation()
               goToNext()
             }}
             aria-label="Next image"
@@ -180,8 +202,7 @@ export function Gallery() {
             <ChevronRight className="h-10 w-10" />
           </Button>
 
-          {/* Image Counter */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-black/50 px-4 py-2 text-sm text-white">
             {currentIndex + 1} / {galleryImages.length}
           </div>
         </div>
