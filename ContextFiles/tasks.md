@@ -110,7 +110,7 @@ This implementation plan breaks down the development of a production-quality, mo
 - [ ] 6. Seed Sanity CMS with initial content
   - Create menu categories (Featured Plates, Frozen Treats, Drinks)
   - Add all menu items from requirements (Boiled Crawfish Plate, Cajun Fried Gator Plate, Southern Fried Catfish & Jambalaya Plate, Snowballs, Bottled Smart Water)
-  - Add known locations (615 S Hardy Dr, Tempe; Yilo Superstore)
+  - Add known locations (1328 W University Dr #104, Tempe; Yilo Superstore)
   - Add sample testimonials based on requirements
   - Add sample gallery images (use provided food images from Context Files)
   - Add FAQ content from requirements

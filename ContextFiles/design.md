@@ -3348,7 +3348,7 @@ body {
 4. **Map Embed**
    - Interactive Google Maps embed
    - Markers for known locations:
-     - 615 S Hardy Dr, Tempe, AZ 85281
+     - 1328 W University Dr #104, Tempe, AZ 85281
      - Yilo Superstore at 2841 W. Thunderbird Rd
    - Zoom to show both locations
 

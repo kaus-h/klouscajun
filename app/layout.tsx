@@ -110,7 +110,7 @@ export default function RootLayout({
               priceRange: '$$',
               address: {
                 '@type': 'PostalAddress',
-                streetAddress: '615 S Hardy Dr',
+                streetAddress: '1328 W University Dr #104',
                 addressLocality: 'Tempe',
                 addressRegion: 'AZ',
                 postalCode: '85281',
@@ -118,15 +118,15 @@ export default function RootLayout({
               },
               geo: {
                 '@type': 'GeoCoordinates',
-                latitude: 33.4152,
-                longitude: -111.9431,
+                latitude: 33.42237276097644, 
+                longitude: -111.95968892883565,
               },
               openingHoursSpecification: [
                 {
                   '@type': 'OpeningHoursSpecification',
-                  dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+                  dayOfWeek: ['Every Other Saturday'],
                   opens: '10:30',
-                  closes: '17:30',
+                  closes: '20:00',
                 },
                 {
                   '@type': 'OpeningHoursSpecification',

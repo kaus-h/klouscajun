@@ -3,11 +3,11 @@ import { Calendar, Clock, MapPin, Navigation, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const currentLocation = {
-  name: '615 S Hardy Dr',
-  address: '615 S Hardy Dr, Tempe, AZ 85281',
+  name: '1328 W University Dr #104',
+  address: '1328 W University Dr #104, Tempe, AZ 85281',
   status: 'Open Today',
   hours: '10:30 AM - 5:30 PM',
-  mapLink: 'https://maps.google.com/?q=615+S+Hardy+Dr+Tempe+AZ+85281',
+  mapLink: 'https://www.google.com/maps/place/1328+W+University+Dr,+Tempe,+AZ+85281',
 }
 
 const upcomingEvents = [
@@ -21,9 +21,9 @@ const upcomingEvents = [
   {
     id: 2,
     name: 'Hardy Dr Location',
-    address: '615 S Hardy Dr, Tempe',
-    date: 'Mon - Thu',
-    time: '10:30 AM - 5:30 PM',
+    address: '1328 W University Dr #104, Tempe',
+    date: 'Every Other Saturday',
+    time: '10:30 AM - 10:00 PM',
   },
 ]
 

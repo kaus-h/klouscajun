@@ -7,7 +7,8 @@ import { Footer } from '@/components/footer'
 import { StickyCTABar } from '@/components/sticky-cta-bar'
 import { Button } from '@/components/ui/button'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = 
+{
   title: 'Menu',
   description: 'Explore our authentic Cajun menu featuring boiled crawfish, fried gator, catfish & jambalaya, snowballs and more. Prices and menu items for K.Lou\'s Cajun Shack.',
 }
@@ -162,7 +163,7 @@ export default function MenuPage() {
 
                   <div className="mt-6 border-t border-cream/10 pt-4">
                     <p className="type-kicker text-gold">Current stop</p>
-                    <p className="type-card-title mt-2 text-cream">615 S Hardy Dr</p>
+                    <p className="type-card-title mt-2 text-cream">1328 W University Dr #104</p>
                     <p className="mt-2 flex items-center gap-2 text-sm text-cream/70">
                       <MapPin className="h-4 w-4 text-gold" />
                       Tempe, AZ 85281

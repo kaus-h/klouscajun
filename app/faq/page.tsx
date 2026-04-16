@@ -31,7 +31,7 @@ const faqCategories = [
       },
       {
         question: 'Where are you located?',
-        answer: 'We operate primarily in the Phoenix and Tempe, Arizona area. Our main location is at 615 S Hardy Dr in Tempe, and we also do pop-ups at various locations including Yilo Superstore on Thunderbird Rd. Check our Find Us page for current locations and hours.',
+        answer: 'We operate primarily in the Phoenix and Tempe, Arizona area. Our main location is at 1328 W University Dr #104 in Tempe, and we also do pop-ups at various locations including Yilo Superstore on Thunderbird Rd. Check our Find Us page for current locations and hours.',
       },
       {
         question: 'What are your hours of operation?',

@@ -17,10 +17,10 @@ const locations = [
   {
     id: 1,
     name: 'Hardy Dr Location',
-    address: '615 S Hardy Dr',
+    address: '1328 W University Dr #104',
     city: 'Tempe, AZ 85281',
     status: 'Primary Location',
-    mapLink: 'https://maps.google.com/?q=615+S+Hardy+Dr+Tempe+AZ+85281',
+    mapLink: 'https://www.google.com/maps/place/1328+W+University+Dr,+Tempe,+AZ+85281',
     hours: {
       'Mon - Thu': '10:30 AM - 5:30 PM',
       'Fri - Sat': '11:00 AM - 5:30 PM',

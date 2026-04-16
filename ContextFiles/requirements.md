@@ -113,7 +113,7 @@ This document specifies the requirements for a production-quality, mobile-first 
 4. THE Location_Module SHALL be editable through a CMS without code changes
 5. WHEN no current location is scheduled, THE Location_Module SHALL display "Check back soon for our next pop-up location!" with a CTA to call for catering
 6. THE Location_Module SHALL display operating hours (Mon-Thu: 10:30 AM - 5:30 PM, Fri-Sat: 11:00 AM - 5:30 PM, Sun: Closed)
-7. THE Location_Module SHALL display known locations (615 S Hardy Dr, Tempe, AZ 85281 and Yilo Superstore at 2841 W. Thunderbird Rd)
+7. THE Location_Module SHALL display known locations (1328 W University Dr #104, Tempe, AZ 85281 and Yilo Superstore at 2841 W. Thunderbird Rd)
 
 ### Requirement 6: Reviews and Testimonials Section
 
@@ -392,7 +392,7 @@ This document specifies the requirements for a production-quality, mobile-first 
 #### Acceptance Criteria
 
 1. THE Find Us page SHALL display an embedded map showing known locations
-2. THE map SHALL display a marker for 615 S Hardy Dr, Tempe, AZ 85281
+2. THE map SHALL display a marker for 1328 W University Dr #104, Tempe, AZ 85281
 3. THE map SHALL display a marker for Yilo Superstore at 2841 W. Thunderbird Rd
 4. THE map SHALL allow users to interact with markers to see location details
 5. THE map SHALL provide directions functionality linking to Google Maps or Apple Maps
