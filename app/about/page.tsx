@@ -57,7 +57,7 @@ export default function AboutPage() {
         <section className="relative py-20 md:py-28 bg-charcoal text-cream overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <Image
-              src="/images/chef-cooking.jpg"
+              src="/images/jambalaya-combo.jpg"
               alt=""
               fill
               className="object-cover"
@@ -87,8 +87,8 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-2xl">
                   <Image
-                    src="/images/chef-cooking.jpg"
-                    alt="Owner Roderick M. preparing authentic Cajun cuisine"
+                    src="/images/shrimp-poboy.jpg"
+                    alt="Authentic shrimp po-boy from K.Lou's Cajun Shack"
                     fill
                     className="object-cover"
                   />

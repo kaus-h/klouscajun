@@ -15,6 +15,7 @@ export function Hero() {
           alt="Authentic Cajun seafood boil with shrimp, sausage, corn, and potatoes"
           fill
           priority
+          loading="eager"
           className="object-cover"
           sizes="100vw"
         />

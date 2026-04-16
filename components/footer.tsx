@@ -11,6 +11,7 @@ const quickLinks = [
   { href: '/find-us', label: 'Find Us' },
   { href: '/reviews', label: 'Reviews' },
   { href: '/contact', label: 'Contact' },
+  { href: '/faq', label: 'FAQ' },
 ]
 
 const operatingHours = [
