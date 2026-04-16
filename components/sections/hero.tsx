@@ -99,7 +99,7 @@ export function Hero() {
 
             <div className="absolute left-4 top-4 max-w-xs rounded-2xl bg-white/95 p-4 shadow-lg shadow-charcoal/10 backdrop-blur">
               <p className="type-kicker text-cajun-red">Today in Tempe</p>
-              <p className="type-card-title text-charcoal mt-2">1328 W University Dr #104</p>
+              <p className="type-card-title text-charcoal mt-2">1314 W University Dr #104</p>
               <div className="mt-3 space-y-2 text-sm text-charcoal/75">
                 <p className="flex items-center gap-2">
                   <MapPin className="h-4 w-4 text-cajun-red" />
