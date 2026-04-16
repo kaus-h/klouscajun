@@ -14,12 +14,12 @@ const cateringFeatures = [
 
 export function CateringSpotlight() {
   return (
-    <section className="py-16 md:py-24 bg-charcoal text-cream">
+    <section className="py-16 md:py-24 bg-charcoal-light text-cream border-t border-charcoal-medium">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Image */}
           <div className="relative order-2 lg:order-1">
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-2xl">
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-2xl shadow-black/50 ring-1 ring-charcoal-medium">
               <Image
                 src="/images/shrimp-boil.jpg"
                 alt="K.Lou's Cajun Shack shrimp boil catering spread"
@@ -27,6 +27,7 @@ export function CateringSpotlight() {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
             </div>
           </div>
 
@@ -38,7 +39,7 @@ export function CateringSpotlight() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6 leading-tight">
               Bring the bayou to your next event
             </h2>
-            <p className="text-cream text-lg leading-relaxed mb-8">
+            <p className="text-cream/90 text-lg leading-relaxed mb-8">
               We cater events of all sizes with bold flavor, dependable service, and the 
               kind of food people remember long after the party is over. From intimate 
               family gatherings to large corporate events.
@@ -51,7 +52,7 @@ export function CateringSpotlight() {
                   key={feature}
                   className="flex items-center gap-3"
                 >
-                  <div className="flex-shrink-0 w-6 h-6 bg-cajun-red rounded-full flex items-center justify-center">
+                  <div className="flex-shrink-0 w-6 h-6 bg-cajun-red rounded-full flex items-center justify-center shadow-md shadow-cajun-red/30">
                     <Check className="h-4 w-4 text-white" strokeWidth={3} />
                   </div>
                   <span className="text-sm text-cream">{feature}</span>
@@ -64,7 +65,7 @@ export function CateringSpotlight() {
               <Button
                 asChild
                 size="lg"
-                className="bg-gold hover:bg-gold-light text-charcoal rounded-full"
+                className="bg-gold hover:bg-gold-light text-charcoal rounded-full shadow-lg shadow-gold/30"
               >
                 <Link href="/catering">Request Catering Quote</Link>
               </Button>

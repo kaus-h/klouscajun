@@ -30,50 +30,50 @@ const upcomingEvents = [
 
 export function LocationModule() {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-charcoal-light">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="mb-12">
-          <p className="text-cajun-red font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
+          <p className="text-gold font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
             Find Us
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-charcoal mb-4 leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-cream mb-4 leading-tight">
             Where to get your fix
           </h2>
-          <p className="text-charcoal max-w-xl">
+          <p className="text-cream/90 max-w-xl">
             Catch us at our regular locations or check our upcoming pop-up events.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6 max-w-5xl">
           {/* Current Location Card */}
-          <Card className="lg:col-span-2 bg-cream border-0 shadow-sm overflow-hidden">
+          <Card className="lg:col-span-2 bg-charcoal border-charcoal-medium shadow-xl shadow-black/30 overflow-hidden">
             <CardHeader className="bg-cajun-red text-white p-6">
               <div className="flex items-center justify-between">
                 <CardTitle className="font-serif text-2xl flex items-center gap-3">
                   <MapPin className="h-6 w-6" />
                   Current Location
                 </CardTitle>
-                <span className="px-3 py-1 bg-white text-cajun-red font-semibold text-sm rounded">
+                <span className="px-3 py-1 bg-gold text-charcoal font-semibold text-sm rounded shadow-md">
                   {currentLocation.status}
                 </span>
               </div>
             </CardHeader>
             <CardContent className="p-6">
-              <h3 className="text-xl font-bold text-charcoal mb-2">
+              <h3 className="text-xl font-bold text-cream mb-2">
                 {currentLocation.name}
               </h3>
-              <p className="text-charcoal mb-4">
+              <p className="text-cream/80 mb-4">
                 {currentLocation.address}
               </p>
-              <div className="flex items-center gap-2 text-charcoal mb-6">
-                <Clock className="h-5 w-5 text-cajun-red" />
+              <div className="flex items-center gap-2 text-cream mb-6">
+                <Clock className="h-5 w-5 text-gold" />
                 <span className="font-medium">{currentLocation.hours}</span>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
                   asChild
-                  className="bg-charcoal hover:bg-charcoal-light text-white rounded-full"
+                  className="bg-gold hover:bg-gold-light text-charcoal rounded-full shadow-lg shadow-gold/30"
                 >
                   <a
                     href={currentLocation.mapLink}
@@ -88,7 +88,7 @@ export function LocationModule() {
                 <Button
                   asChild
                   variant="outline"
-                  className="border-charcoal text-charcoal hover:bg-charcoal hover:text-white rounded-full"
+                  className="border-cream text-cream hover:bg-cream hover:text-charcoal rounded-full"
                 >
                   <a href="tel:+16025968036" className="flex items-center gap-2">
                     <Phone className="h-4 w-4" />
@@ -100,10 +100,10 @@ export function LocationModule() {
           </Card>
 
           {/* Upcoming Events */}
-          <Card className="bg-cream border-0 shadow-sm">
-            <CardHeader className="bg-charcoal text-white p-6">
+          <Card className="bg-charcoal border-charcoal-medium shadow-xl shadow-black/30">
+            <CardHeader className="bg-charcoal-medium text-cream p-6">
               <CardTitle className="font-serif text-xl flex items-center gap-3">
-                <Calendar className="h-5 w-5" />
+                <Calendar className="h-5 w-5 text-gold" />
                 Schedule
               </CardTitle>
             </CardHeader>
@@ -112,16 +112,16 @@ export function LocationModule() {
                 <div
                   key={event.id}
                   className={`p-4 ${
-                    index !== upcomingEvents.length - 1 ? 'border-b border-charcoal/10' : ''
+                    index !== upcomingEvents.length - 1 ? 'border-b border-charcoal-medium' : ''
                   }`}
                 >
-                  <p className="font-semibold text-charcoal">{event.name}</p>
-                  <p className="text-sm text-charcoal">{event.address}</p>
+                  <p className="font-semibold text-cream">{event.name}</p>
+                  <p className="text-sm text-cream/70">{event.address}</p>
                   <div className="flex items-center gap-2 mt-2 text-sm">
-                    <span className="px-2 py-0.5 bg-gold/20 text-charcoal text-xs font-medium rounded">
+                    <span className="px-2 py-0.5 bg-gold/20 text-gold text-xs font-medium rounded">
                       {event.date}
                     </span>
-                    <span className="text-charcoal">{event.time}</span>
+                    <span className="text-cream/70">{event.time}</span>
                   </div>
                 </div>
               ))}
@@ -134,7 +134,7 @@ export function LocationModule() {
           <Button
             asChild
             variant="outline"
-            className="border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-cream rounded-full"
+            className="border-2 border-gold text-gold hover:bg-gold hover:text-charcoal rounded-full"
           >
             <Link href="/find-us">View All Locations & Hours</Link>
           </Button>

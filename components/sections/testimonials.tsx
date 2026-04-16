@@ -44,7 +44,7 @@ function StarRating({ rating }: { rating: number }) {
         <Star
           key={i}
           className={`h-4 w-4 ${
-            i < rating ? 'fill-[#FF3B30] text-[#FF3B30]' : 'fill-gray-200 text-gray-200'
+            i < rating ? 'fill-gold text-gold' : 'fill-charcoal-medium text-charcoal-medium'
           }`}
         />
       ))}
@@ -54,14 +54,14 @@ function StarRating({ rating }: { rating: number }) {
 
 export function Testimonials() {
   return (
-    <section className="py-16 md:py-24 bg-cream">
+    <section className="py-16 md:py-24 bg-charcoal-light">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="mb-12">
-          <p className="text-cajun-red font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
+          <p className="text-gold font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
             What Customers Are Saying
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-charcoal mb-4 leading-tight max-w-2xl">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-cream mb-4 leading-tight max-w-2xl">
             Real reviews from real customers
           </h2>
           
@@ -72,43 +72,43 @@ export function Testimonials() {
                 <Star
                   key={i}
                   className={`h-6 w-6 ${
-                    i < 4.5
-                      ? 'fill-[#FF3B30] text-[#FF3B30]'
-                      : i < 5 ? 'fill-[#FF3B30]/50 text-[#FF3B30]/50' : 'fill-gray-300 text-gray-300'
+                    i < 4
+                      ? 'fill-gold text-gold'
+                      : i < 5 ? 'fill-gold/50 text-gold/50' : 'fill-charcoal-medium text-charcoal-medium'
                   }`}
                 />
               ))}
             </div>
-            <span className="text-charcoal/70 text-sm">4.5 stars on Yelp</span>
+            <span className="text-cream/70 text-sm">4.5 stars on Yelp</span>
           </div>
         </div>
 
-        {/* Testimonial Cards - Horizontal Scroll on Mobile */}
+        {/* Testimonial Cards */}
         <div className="flex gap-6 overflow-x-auto pb-4 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 scrollbar-hide">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="flex-shrink-0 w-[300px] md:w-auto bg-white rounded-lg p-6 shadow-sm border border-charcoal/5"
+              className="flex-shrink-0 w-[300px] md:w-auto bg-charcoal rounded-xl p-6 shadow-xl shadow-black/30 border border-charcoal-medium"
             >
               {/* Header */}
               <div className="flex items-start gap-3 mb-4">
-                <div className="w-10 h-10 bg-charcoal/10 rounded-full flex items-center justify-center text-charcoal font-semibold">
+                <div className="w-10 h-10 bg-cajun-red rounded-full flex items-center justify-center text-white font-semibold shadow-md shadow-cajun-red/30">
                   {testimonial.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="font-semibold text-charcoal">{testimonial.name}</p>
-                  <p className="text-xs text-charcoal/50">{testimonial.location}</p>
+                  <p className="font-semibold text-cream">{testimonial.name}</p>
+                  <p className="text-xs text-cream/50">{testimonial.location}</p>
                 </div>
               </div>
 
               {/* Rating & Date */}
               <div className="flex items-center gap-2 mb-3">
                 <StarRating rating={testimonial.rating} />
-                <span className="text-xs text-charcoal/50">{testimonial.date}</span>
+                <span className="text-xs text-cream/50">{testimonial.date}</span>
               </div>
               
               {/* Content */}
-              <p className="text-charcoal text-sm leading-relaxed">
+              <p className="text-cream/90 text-sm leading-relaxed">
                 {testimonial.content}
               </p>
             </div>
@@ -120,7 +120,7 @@ export function Testimonials() {
           <Button
             asChild
             variant="outline"
-            className="border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-cream rounded-full"
+            className="border-2 border-gold text-gold hover:bg-gold hover:text-charcoal rounded-full"
           >
             <Link href="/reviews">Read More Reviews</Link>
           </Button>

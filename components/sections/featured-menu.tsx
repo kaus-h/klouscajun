@@ -26,18 +26,18 @@ const featuredItems = [
 
 export function FeaturedMenu() {
   return (
-    <section className="py-16 md:py-24 bg-cream">
+    <section className="py-16 md:py-24 bg-charcoal">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
-            <p className="text-cajun-red font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
+            <p className="text-gold font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
               Signature Dishes
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-charcoal leading-tight max-w-2xl">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-cream leading-tight max-w-2xl">
               The plates people talk about after the pop-up ends
             </h2>
-            <p className="text-charcoal mt-4 max-w-xl leading-relaxed">
+            <p className="text-cream/90 mt-4 max-w-xl leading-relaxed">
               Bold Louisiana flavors that keep people coming back, whether you catch the truck or 
               bring the whole menu to your event.
             </p>
@@ -45,7 +45,7 @@ export function FeaturedMenu() {
           <Button
             asChild
             variant="outline"
-            className="border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-cream rounded-full px-6 self-start md:self-auto"
+            className="border-2 border-gold text-gold hover:bg-gold hover:text-charcoal rounded-full px-6 self-start md:self-auto"
           >
             <Link href="/menu" className="flex items-center gap-2">
               View Full Menu
@@ -62,7 +62,7 @@ export function FeaturedMenu() {
               className="group"
             >
               {/* Image */}
-              <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-4 shadow-lg">
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-4 shadow-xl shadow-black/40 ring-1 ring-charcoal-medium">
                 <Image
                   src={item.image}
                   alt={item.name}
@@ -70,13 +70,15 @@ export function FeaturedMenu() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-serif font-bold text-charcoal mb-2">
+              <h3 className="text-xl font-serif font-bold text-cream mb-2">
                 {item.name}
               </h3>
-              <p className="text-charcoal text-sm">
+              <p className="text-cream/80 text-sm">
                 {item.description}
               </p>
             </div>

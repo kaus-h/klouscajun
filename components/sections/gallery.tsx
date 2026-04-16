@@ -74,17 +74,17 @@ export function Gallery() {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-cream">
+    <section className="py-16 md:py-24 bg-charcoal">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="mb-12">
-          <p className="text-cajun-red font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
+          <p className="text-gold font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
             Eat With Your Eyes
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-charcoal mb-4 leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-cream mb-4 leading-tight">
             Photo Gallery
           </h2>
-          <p className="text-charcoal max-w-xl">
+          <p className="text-cream/90 max-w-xl">
             Take a look at our authentic Cajun dishes and catering setups.
           </p>
         </div>
@@ -95,7 +95,7 @@ export function Gallery() {
             <button
               key={image.id}
               onClick={() => openLightbox(index)}
-              className="group relative aspect-square overflow-hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-cajun-red focus:ring-offset-2"
+              className="group relative aspect-square overflow-hidden rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-charcoal shadow-lg shadow-black/30"
             >
               <Image
                 src={image.src}
@@ -104,7 +104,7 @@ export function Gallery() {
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
                 sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
               />
-              <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/40 transition-colors duration-300 flex items-end justify-center">
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 flex items-end justify-center">
                 <span className="text-white font-medium text-sm pb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {image.caption}
                 </span>
@@ -117,7 +117,7 @@ export function Gallery() {
       {/* Lightbox */}
       {lightboxOpen && (
         <div
-          className="fixed inset-0 z-50 bg-charcoal/95 flex items-center justify-center"
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
           onClick={closeLightbox}
           role="dialog"
           aria-modal="true"
@@ -161,7 +161,7 @@ export function Gallery() {
               sizes="100vw"
               priority
             />
-            <p className="absolute bottom-0 left-0 right-0 text-center text-white bg-charcoal/50 py-3">
+            <p className="absolute bottom-0 left-0 right-0 text-center text-white bg-black/70 py-3 font-medium">
               {galleryImages[currentIndex].caption}
             </p>
           </div>
@@ -181,7 +181,7 @@ export function Gallery() {
           </Button>
 
           {/* Image Counter */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full">
             {currentIndex + 1} / {galleryImages.length}
           </div>
         </div>

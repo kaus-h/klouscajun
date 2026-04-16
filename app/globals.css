@@ -4,48 +4,50 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* K.Lou's Cajun Shack Brand Colors */
+  /* K.Lou's Cajun Shack Brand Colors - BOLD DARK THEME */
   --cajun-red: #8B0000;
   --cajun-red-light: #A52A2A;
   --cajun-red-dark: #5C0000;
-  --charcoal: #2B2B2B;
-  --charcoal-light: #3D3D3D;
+  --charcoal: #1A1A1A;
+  --charcoal-light: #2B2B2B;
+  --charcoal-medium: #3D3D3D;
   --cream: #F5F5DC;
   --cream-dark: #E8E8C8;
   --gold: #D4AF37;
   --gold-light: #E4C44F;
   --gold-dark: #B8962E;
   
-  --background: #F5F5DC;
-  --foreground: #2B2B2B;
-  --card: #FFFFFF;
-  --card-foreground: #2B2B2B;
-  --popover: #FFFFFF;
-  --popover-foreground: #2B2B2B;
+  /* Dark bold theme as default */
+  --background: #1A1A1A;
+  --foreground: #F5F5DC;
+  --card: #2B2B2B;
+  --card-foreground: #F5F5DC;
+  --popover: #2B2B2B;
+  --popover-foreground: #F5F5DC;
   --primary: #8B0000;
   --primary-foreground: #FFFFFF;
   --secondary: #D4AF37;
-  --secondary-foreground: #2B2B2B;
-  --muted: #E8E8C8;
-  --muted-foreground: #5C5C5C;
+  --secondary-foreground: #1A1A1A;
+  --muted: #3D3D3D;
+  --muted-foreground: #A0A0A0;
   --accent: #D4AF37;
-  --accent-foreground: #2B2B2B;
+  --accent-foreground: #1A1A1A;
   --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
-  --border: #D4C9A8;
-  --input: #FFFFFF;
+  --border: #3D3D3D;
+  --input: #2B2B2B;
   --ring: #8B0000;
   --chart-1: #8B0000;
   --chart-2: #D4AF37;
-  --chart-3: #2B2B2B;
+  --chart-3: #F5F5DC;
   --chart-4: #A52A2A;
   --chart-5: #E4C44F;
   --radius: 0.5rem;
-  --sidebar: #2B2B2B;
+  --sidebar: #1A1A1A;
   --sidebar-foreground: #F5F5DC;
   --sidebar-primary: #8B0000;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #3D3D3D;
+  --sidebar-accent: #2B2B2B;
   --sidebar-accent-foreground: #F5F5DC;
   --sidebar-border: #3D3D3D;
   --sidebar-ring: #D4AF37;
@@ -98,6 +100,7 @@
   --color-cajun-red-dark: var(--cajun-red-dark);
   --color-charcoal: var(--charcoal);
   --color-charcoal-light: var(--charcoal-light);
+  --color-charcoal-medium: var(--charcoal-medium);
   --color-cream: var(--cream);
   --color-cream-dark: var(--cream-dark);
   --color-gold: var(--gold);

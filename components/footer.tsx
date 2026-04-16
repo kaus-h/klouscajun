@@ -27,7 +27,7 @@ const operatingHours = [
 
 export function Footer() {
   return (
-    <footer className="bg-charcoal text-cream">
+    <footer className="bg-charcoal text-cream border-t border-charcoal-medium">
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
@@ -39,7 +39,7 @@ export function Footer() {
             <h3 className="font-serif text-3xl md:text-4xl font-bold text-cream mb-4 leading-tight">
               Come hungry.<br />Leave happy.
             </h3>
-            <p className="text-cream text-sm leading-relaxed mb-6">
+            <p className="text-cream/90 text-sm leading-relaxed mb-6">
               Pop-up Cajun plates, crawfish season, and catering that feels like somebody 
               in the family made sure your event ate well.
             </p>
@@ -57,7 +57,7 @@ export function Footer() {
               </Button>
               <Button 
                 asChild 
-                className="w-fit bg-cream text-charcoal hover:bg-cream/90 rounded-full"
+                className="w-fit bg-cajun-red hover:bg-cajun-red-light text-white rounded-full shadow-lg shadow-cajun-red/30"
               >
                 <Link href="/catering">
                   Book Catering
@@ -67,11 +67,11 @@ export function Footer() {
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2 mt-6">
-              <span className="text-cream/50 text-sm">Phoenix / Tempe</span>
-              <span className="text-cream/50 text-sm">•</span>
-              <span className="text-cream/50 text-sm">Black-owned</span>
-              <span className="text-cream/50 text-sm">•</span>
-              <span className="text-cream/50 text-sm">Family-run</span>
+              <span className="text-cream/60 text-sm">Phoenix / Tempe</span>
+              <span className="text-gold text-sm">•</span>
+              <span className="text-cream/60 text-sm">Black-owned</span>
+              <span className="text-gold text-sm">•</span>
+              <span className="text-cream/60 text-sm">Family-run</span>
             </div>
           </div>
 
@@ -119,7 +119,7 @@ export function Footer() {
               {operatingHours.map((schedule) => (
                 <li key={schedule.days} className="flex justify-between text-sm">
                   <span className="text-cream">{schedule.days}</span>
-                  <span className="text-cream">{schedule.hours}</span>
+                  <span className="text-cream/80">{schedule.hours}</span>
                 </li>
               ))}
             </ul>
@@ -157,9 +157,9 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-charcoal-light">
+      <div className="border-t border-charcoal-medium">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-cream/50">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-cream/60">
             <p>
               &copy; {new Date().getFullYear()} K.Lou&apos;s Cajun Shack & Catering, LLC. All rights reserved.
             </p>
