@@ -116,7 +116,7 @@ export default function FAQPage() {
   return (
     <>
       <Navigation />
-      <main className="pt-16 md:pt-20 pb-20 lg:pb-0">
+      <main className="pb-20 lg:pb-0">
         {/* Hero Section */}
         <section className="py-16 md:py-24 bg-charcoal text-cream">
           <div className="container mx-auto px-4 text-center">

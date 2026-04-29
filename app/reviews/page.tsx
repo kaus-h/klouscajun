@@ -123,7 +123,7 @@ export default function ReviewsPage() {
   return (
     <>
       <Navigation />
-      <main className="pt-16 md:pt-20 pb-20 lg:pb-0">
+      <main className="pb-20 lg:pb-0">
         <section className="relative overflow-hidden bg-cream py-16 md:py-24">
           <div className="absolute inset-x-0 top-0 h-56 bg-gradient-to-b from-gold/20 to-transparent pointer-events-none" />
           <div className="absolute left-0 top-8 h-72 w-72 rounded-full bg-cajun-red/10 blur-3xl pointer-events-none" />
@@ -133,7 +133,7 @@ export default function ReviewsPage() {
               <div className="space-y-8">
                 <div className="space-y-4">
                   <p className="type-kicker text-cajun-red">Testimonials</p>
-                  <h1 className="type-page-title max-w-[12ch] text-charcoal">
+                  <h1 className="type-page-title max-w-[17ch] text-charcoal">
                     Real words from people who came hungry and left happy.
                   </h1>
                   <p className="type-lead max-w-2xl text-charcoal/80">

@@ -1,18 +1,12 @@
 import type { Metadata, Viewport } from 'next'
-import { Eczar, Work_Sans } from 'next/font/google'
+import { Bricolage_Grotesque } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const workSans = Work_Sans({
+const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ['latin'],
-  variable: '--font-work-sans',
-  display: 'swap',
-})
-
-const eczar = Eczar({
-  subsets: ['latin'],
-  variable: '--font-eczar',
-  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-bricolage-grotesque',
+  weight: ['300', '400', '500', '600', '700', '800'],
   display: 'swap',
 })
 
@@ -94,7 +88,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${workSans.variable} ${eczar.variable} bg-background`}>
+    <html lang="en" className={`${bricolageGrotesque.variable} bg-background`}>
       <head>
         <script
           type="application/ld+json"

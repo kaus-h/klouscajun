@@ -75,17 +75,17 @@ export default function CateringPage() {
   return (
     <>
       <Navigation />
-      <main className="pt-16 md:pt-20 pb-20 lg:pb-0">
-        <section className="relative overflow-hidden bg-cream py-16 md:py-24">
+      <main className="pb-20 lg:pb-0">
+        <section className="relative overflow-hidden bg-cream py-14 md:py-20">
           <div className="absolute inset-x-0 top-0 h-56 bg-gradient-to-b from-gold/20 to-transparent pointer-events-none" />
           <div className="absolute left-0 top-10 h-72 w-72 rounded-full bg-cajun-red/10 blur-3xl pointer-events-none" />
 
           <div className="container mx-auto px-4 relative z-10">
-            <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-start">
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-center">
               <div className="space-y-8">
                 <div className="space-y-4">
                   <p className="type-kicker text-cajun-red">Catering services</p>
-                  <h1 className="type-page-title max-w-[12ch] text-charcoal">
+                  <h1 className="type-page-title max-w-[19ch] text-charcoal">
                     Cajun catering for parties, office lunches, and crawfish boils.
                   </h1>
                   <p className="type-lead max-w-2xl text-charcoal/80">
@@ -99,7 +99,7 @@ export default function CateringPage() {
                   <Button
                     asChild
                     size="lg"
-                    className="rounded-full bg-cajun-red text-white hover:bg-cajun-red-light"
+                    className="premium-lift rounded-md bg-cajun-red text-white hover:bg-cajun-red-light"
                   >
                     <a href="#catering-form">Get a quote</a>
                   </Button>
@@ -107,7 +107,7 @@ export default function CateringPage() {
                     asChild
                     size="lg"
                     variant="outline"
-                    className="rounded-full border-charcoal text-charcoal hover:bg-charcoal hover:text-cream"
+                    className="premium-lift rounded-md border-charcoal text-charcoal hover:bg-charcoal hover:text-cream"
                   >
                     <a href="tel:+16025968036" className="flex items-center gap-2">
                       <Phone className="h-5 w-5" />
@@ -116,7 +116,7 @@ export default function CateringPage() {
                   </Button>
                 </div>
 
-                <div className="grid gap-5 sm:grid-cols-2">
+                <div className="hidden gap-5 lg:grid lg:grid-cols-2">
                   <div className="border-t border-charcoal/15 pt-4">
                     <p className="type-kicker text-cajun-red/80">For family tables</p>
                     <p className="type-card-title mt-2 text-charcoal">
@@ -132,8 +132,8 @@ export default function CateringPage() {
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-charcoal shadow-2xl shadow-charcoal/15">
+              <div className="hidden space-y-4 lg:block">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-charcoal shadow-2xl shadow-charcoal/15">
                   <Image
                     src="/images/shrimp-boil.jpg"
                     alt="Shrimp boil catering spread from K.Lou's Cajun Shack"
@@ -145,7 +145,7 @@ export default function CateringPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
                 </div>
 
-                <aside className="rounded-3xl bg-charcoal p-6 text-cream">
+                <aside className="rounded-lg bg-charcoal p-6 text-cream">
                   <p className="type-kicker text-gold">What people care about</p>
                   <div className="mt-4 space-y-4 border-t border-cream/10 pt-4">
                     <div>

@@ -22,17 +22,17 @@ export default function ContactPage() {
   return (
     <>
       <Navigation />
-      <main className="pt-16 md:pt-20 pb-20 lg:pb-0">
-        <section className="relative overflow-hidden bg-cream py-16 md:py-24">
+      <main className="pb-20 lg:pb-0">
+        <section className="relative overflow-hidden bg-cream py-14 md:py-20">
           <div className="absolute inset-x-0 top-0 h-56 bg-gradient-to-b from-gold/20 to-transparent pointer-events-none" />
           <div className="absolute right-0 top-6 h-72 w-72 rounded-full bg-cajun-red/10 blur-3xl pointer-events-none" />
 
           <div className="container mx-auto px-4 relative z-10">
-            <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start">
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-center">
               <div className="space-y-8">
                 <div className="space-y-4">
                   <p className="type-kicker text-cajun-red">Get in touch</p>
-                  <h1 className="type-page-title max-w-[11ch] text-charcoal">
+                  <h1 className="type-page-title max-w-[18ch] text-charcoal">
                     Call, ask a question, or start a catering quote.
                   </h1>
                   <p className="type-lead max-w-2xl text-charcoal/80">
@@ -45,7 +45,7 @@ export default function ContactPage() {
                   <Button
                     asChild
                     size="lg"
-                    className="rounded-full bg-charcoal text-cream hover:bg-charcoal-light"
+                    className="premium-lift rounded-md bg-charcoal text-cream hover:bg-charcoal-light"
                   >
                     <a href="tel:+16025968036" className="flex items-center gap-2">
                       <Phone className="h-5 w-5" />
@@ -56,13 +56,13 @@ export default function ContactPage() {
                     asChild
                     size="lg"
                     variant="outline"
-                    className="rounded-full border-charcoal text-charcoal hover:bg-charcoal hover:text-cream"
+                    className="premium-lift rounded-md border-charcoal text-charcoal hover:bg-charcoal hover:text-cream"
                   >
                     <Link href="/find-us">Find us today</Link>
                   </Button>
                 </div>
 
-                <div className="grid gap-5 sm:grid-cols-2">
+                <div className="hidden gap-5 lg:grid lg:grid-cols-2">
                   <div className="border-t border-charcoal/15 pt-4">
                     <p className="type-kicker text-cajun-red/80">Fastest path</p>
                     <p className="type-card-title mt-2 text-charcoal">
@@ -78,7 +78,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <aside className="rounded-3xl bg-charcoal p-6 text-cream">
+              <aside className="hidden rounded-lg bg-charcoal p-6 text-cream lg:block">
                 <p className="type-kicker text-gold">Hours</p>
                 <div className="mt-4 space-y-3 border-t border-cream/10 pt-4 text-sm">
                   {operatingHours.map((schedule) => (

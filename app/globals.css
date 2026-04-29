@@ -89,9 +89,9 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-work-sans), 'Segoe UI', sans-serif;
-  --font-serif: var(--font-eczar), Georgia, serif;
-  --font-display: var(--font-work-sans), 'Segoe UI', sans-serif;
+  --font-sans: var(--font-bricolage-grotesque), 'Segoe UI', sans-serif;
+  --font-serif: var(--font-bricolage-grotesque), 'Segoe UI', sans-serif;
+  --font-display: var(--font-bricolage-grotesque), 'Segoe UI', sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   
   /* Brand Color Tokens */
@@ -161,8 +161,8 @@
   h3,
   h4,
   [data-slot='card-title'] {
-    font-family: var(--font-serif);
-    letter-spacing: 0;
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
   }
   h1,
   h2,
@@ -180,44 +180,44 @@
     font-family: var(--font-display);
     font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.08em;
     line-height: 1.2;
     text-transform: uppercase;
   }
 
   .type-hero {
-    font-family: var(--font-serif);
-    font-size: 2.8rem;
-    font-weight: 800;
-    letter-spacing: 0;
-    line-height: 1.02;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 0.98;
     text-wrap: balance;
   }
 
   .type-page-title {
-    font-family: var(--font-serif);
-    font-size: 2.85rem;
-    font-weight: 800;
-    letter-spacing: 0;
-    line-height: 1.04;
+    font-family: var(--font-display);
+    font-size: 2.65rem;
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 0.98;
     text-wrap: balance;
   }
 
   .type-section-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-display);
     font-size: 2.15rem;
-    font-weight: 700;
-    letter-spacing: 0;
-    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
     text-wrap: balance;
   }
 
   .type-card-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-display);
     font-size: 1.35rem;
-    font-weight: 700;
-    letter-spacing: 0;
-    line-height: 1.14;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
     text-wrap: balance;
   }
 
@@ -240,10 +240,10 @@
   }
 
   .type-nav-brand {
-    font-family: var(--font-serif);
+    font-family: var(--font-display);
     font-size: 2.15rem;
-    font-weight: 800;
-    letter-spacing: 0;
+    font-weight: 700;
+    letter-spacing: -0.05em;
     line-height: 0.9;
   }
 
@@ -251,7 +251,7 @@
     font-family: var(--font-display);
     font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.08em;
     line-height: 1.1;
     text-transform: uppercase;
   }
@@ -262,13 +262,13 @@
     }
 
     .type-hero {
-      font-size: 4.35rem;
-      line-height: 0.98;
+      font-size: 4.2rem;
+      line-height: 0.94;
     }
 
     .type-page-title {
-      font-size: 4rem;
-      line-height: 1.02;
+      font-size: 3.25rem;
+      line-height: 0.96;
     }
 
     .type-section-title {
@@ -294,11 +294,37 @@
 
   @media (min-width: 1280px) {
     .type-hero {
-      font-size: 4.65rem;
+      font-size: 4.55rem;
     }
 
     .type-page-title {
-      font-size: 4.6rem;
+      font-size: 3.7rem;
+    }
+  }
+
+  .premium-lift {
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      background-color 180ms ease,
+      color 180ms ease;
+  }
+
+  .premium-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  .premium-lift:active {
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .premium-lift,
+    .premium-lift:hover,
+    .premium-lift:active {
+      transform: none;
+      transition: none;
     }
   }
 }

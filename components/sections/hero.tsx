@@ -50,13 +50,13 @@ export function Hero() {
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(10,10,9,0.32)_0%,rgba(10,10,9,0.08)_42%,rgba(10,10,9,0.88)_100%)]" />
 
       <div className="container relative z-10 mx-auto px-4">
-        <div className="flex min-h-[calc(100svh-104px)] flex-col justify-end gap-8 py-10 md:min-h-[calc(100svh-118px)] md:justify-center md:py-16 lg:max-w-[58rem] xl:max-w-[62rem]">
+        <div className="flex flex-col gap-8 pt-20 pb-32 md:min-h-[calc(100svh-118px)] md:justify-center md:py-16 lg:max-w-[58rem] xl:max-w-[62rem]">
           <div className="space-y-6 pt-10 md:pt-0">
             <div className="space-y-4">
               <p className="type-kicker text-cajun-red-light md:text-gold">
                 Phoenix pop-ups. Family meals. Catering that hits.
               </p>
-              <h1 className="type-hero max-w-[9.5ch] text-cream drop-shadow-[0_4px_30px_rgba(0,0,0,0.45)] md:max-w-[17ch] xl:max-w-[18ch]">
+              <h1 className="type-hero max-w-[14ch] text-cream drop-shadow-[0_4px_30px_rgba(0,0,0,0.45)] md:max-w-[17ch] xl:max-w-[18ch]">
                 Real <span className="text-gold">Louisiana</span>{' '}flavor in Phoenix &amp; Tempe.
               </h1>
               <div className="hidden h-px w-72 bg-gold/65 md:block" />

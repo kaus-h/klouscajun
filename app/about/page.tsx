@@ -52,7 +52,7 @@ export default function AboutPage() {
   return (
     <>
       <Navigation />
-      <main className="pt-16 md:pt-20 pb-20 lg:pb-0">
+      <main className="pb-20 lg:pb-0">
         {/* Hero Section */}
         <section className="relative py-20 md:py-28 bg-charcoal text-cream overflow-hidden">
           <div className="absolute inset-0 opacity-20">
