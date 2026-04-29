@@ -40,10 +40,10 @@ export function Hero() {
     <section className="relative isolate overflow-hidden bg-charcoal text-cream">
       <Image
         src="/images/hero-cajun-food.jpg"
-        alt="Cajun spread with crawfish, fried catfish, jambalaya, shrimp and beignets"
+        alt="Southern fried catfish plate with fries and sides from K.Lou's Cajun Shack"
         fill
         priority
-        className="absolute inset-0 -z-20 object-cover object-[52%_center] md:object-[72%_center]"
+        className="absolute inset-0 -z-20 -scale-x-100 object-cover object-[52%_center] md:object-[72%_center]"
         sizes="100vw"
       />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(10,10,9,0.97)_0%,rgba(10,10,9,0.86)_34%,rgba(10,10,9,0.48)_62%,rgba(10,10,9,0.2)_100%)]" />

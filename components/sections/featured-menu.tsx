@@ -32,7 +32,7 @@ const featuredItems = [
     id: 4,
     name: 'Snowballs',
     price: 6,
-    image: '/images/snowballs.jpg',
+    image: null,
     description: 'One flavor included. Additional flavors +$2.',
     note: 'Arizona cooldown',
   },
@@ -107,15 +107,24 @@ export function FeaturedMenu() {
                   key={item.id}
                   className="grid gap-4 border-b border-charcoal/10 pb-6 last:border-b-0 last:pb-0 sm:grid-cols-[160px_1fr]"
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-charcoal">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 100vw, 160px"
-                    />
-                  </div>
+                  {item.image ? (
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-charcoal">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, 160px"
+                      />
+                    </div>
+                  ) : (
+                    <div className="flex aspect-[4/3] items-center justify-center rounded-lg border border-gold/35 bg-charcoal p-4 text-center text-cream">
+                      <div>
+                        <p className="type-kicker text-gold">Cool down</p>
+                        <p className="mt-2 text-2xl font-semibold leading-none">19 flavors</p>
+                      </div>
+                    </div>
+                  )}
                   <div className="space-y-2">
                     <div className="flex items-start justify-between gap-4">
                       <div>
