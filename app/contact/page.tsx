@@ -33,7 +33,7 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   <p className="type-kicker text-cajun-red">Get in touch</p>
                   <h1 className="type-page-title max-w-[11ch] text-charcoal">
-                    Make it easy to ask a question, place an order, or start the quote.
+                    Call, ask a question, or start a catering quote.
                   </h1>
                   <p className="type-lead max-w-2xl text-charcoal/80">
                     Call for the fastest answer, check the current location if you&apos;re heading out,
@@ -95,7 +95,7 @@ export default function ContactPage() {
                   <p className="type-kicker text-gold">Service area</p>
                   <p className="type-card-title mt-2 text-cream">Phoenix &amp; Tempe</p>
                   <p className="type-meta mt-2 text-cream/70">
-                    Pop-up locations shift, so the `Find Us` page and a quick call are the best
+                    Pop-up locations shift, so the Find Us page and a quick call are the best
                     way to confirm where we are today.
                   </p>
                 </div>

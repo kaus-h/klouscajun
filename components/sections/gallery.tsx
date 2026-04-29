@@ -101,11 +101,11 @@ export function Gallery() {
           <div className="space-y-4">
             <p className="type-kicker text-cajun-red">Eat with your eyes</p>
             <h2 className="type-section-title max-w-2xl text-charcoal">
-              Food photography should feel like appetite, not a row of identical thumbnails.
+              Catfish, beignets, boils, and plates worth leaning over the table for.
             </h2>
             <p className="type-body max-w-xl text-charcoal/75">
-              The dishes already have personality. The layout should let them breathe instead of
-              forcing them into one repeated square.
+              A quick look at the kind of food people call ahead for, bring to parties, and come
+              back to find again.
             </p>
           </div>
 
@@ -123,7 +123,7 @@ export function Gallery() {
             <button
               key={image.id}
               onClick={() => openLightbox(index)}
-              className={`group relative overflow-hidden rounded-3xl bg-charcoal focus:outline-none focus:ring-2 focus:ring-cajun-red focus:ring-offset-2 focus:ring-offset-white ${layoutClasses[index]} ${aspectClasses[index]}`}
+              className={`group relative overflow-hidden rounded-lg bg-charcoal focus:outline-none focus:ring-2 focus:ring-cajun-red focus:ring-offset-2 focus:ring-offset-white ${layoutClasses[index]} ${aspectClasses[index]}`}
             >
               <Image
                 src={image.src}

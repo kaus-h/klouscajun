@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { 
-  MapPin, Clock, Phone, Navigation, Calendar, AlertCircle 
-} from 'lucide-react'
+import { Clock, Phone, Navigation, Calendar, AlertCircle } from 'lucide-react'
 import { Navigation as SiteNavigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import { StickyCTABar } from '@/components/sticky-cta-bar'
@@ -16,11 +14,11 @@ export const metadata: Metadata = {
 const locations = [
   {
     id: 1,
-    name: 'University Dr Location',
-    address: '1328 W University Dr #104',
-    city: 'Tempe, AZ 85281',
-    status: 'Primary Location',
-    mapLink: 'https://www.google.com/maps/place/1328+W+University+Dr,+Tempe,+AZ+85281',
+    name: "Today's Pop-Up",
+    address: '1314 W University Dr #104',
+    city: 'Tempe, AZ',
+    status: 'Call Ahead to Confirm',
+    mapLink: 'https://www.google.com/maps/search/?api=1&query=1314+W+University+Dr+%23104+Tempe+AZ',
     hours: {
       'Mon - Thu': '10:30 AM - 5:30 PM',
       'Fri - Sat': '11:00 AM - 5:30 PM',
@@ -66,11 +64,11 @@ export default function FindUsPage() {
                 <div className="space-y-4">
                   <p className="type-kicker text-cajun-red">Find us</p>
                   <h1 className="type-page-title max-w-[12ch] text-charcoal">
-                    Show the current stop first so people know where to go without guessing.
+                    Check the active stop before you head out.
                   </h1>
                   <p className="type-lead max-w-2xl text-charcoal/80">
-                    K.Lou&apos;s runs from Tempe through Phoenix pop-ups, so this page needs to tell
-                    people today&apos;s best answer quickly and let the rest of the schedule support it.
+                    K.Lou&apos;s runs from Tempe through Phoenix pop-ups, so use this page to find the
+                    best current stop and call ahead when the schedule matters.
                   </p>
                 </div>
 
@@ -105,9 +103,9 @@ export default function FindUsPage() {
 
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div className="border-t border-charcoal/15 pt-4">
-                    <p className="type-kicker text-cajun-red/80">Current anchor</p>
+                    <p className="type-kicker text-cajun-red/80">Active stop</p>
                     <p className="type-card-title mt-2 text-charcoal">
-                      University Dr. in Tempe is the main reference point for weekday service.
+                      University Dr. is the featured stop to check first before you head out.
                     </p>
                   </div>
                   <div className="border-t border-charcoal/15 pt-4">
@@ -150,7 +148,7 @@ export default function FindUsPage() {
             <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_320px] lg:items-start">
               <article className="border-t border-charcoal/15 pt-6">
                 <div className="space-y-4">
-                  <p className="type-kicker text-cajun-red">Primary location</p>
+                  <p className="type-kicker text-cajun-red">Current location</p>
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                     <div>
                       <h2 className="type-section-title text-charcoal">{primaryLocation.name}</h2>
@@ -167,8 +165,8 @@ export default function FindUsPage() {
                 <div className="mt-6 grid gap-8 md:grid-cols-[minmax(0,1fr)_260px]">
                   <div className="space-y-4">
                     <p className="type-body text-charcoal/75">
-                      This is the clearest answer for people looking for a dependable weekday stop.
-                      If there&apos;s a change in schedule, call and we&apos;ll tell you where to head.
+                      This is the best current stop to check first. If the schedule changes,
+                      call and we&apos;ll tell you where to head.
                     </p>
                     <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                       <Button
@@ -251,7 +249,7 @@ export default function FindUsPage() {
               <div className="space-y-4">
                 <p className="type-kicker text-cajun-red">Weekly schedule</p>
                 <h2 className="type-section-title text-charcoal">
-                  Keep the ongoing schedule visible, but secondary to the active location.
+                  Use the weekly schedule to plan your next visit.
                 </h2>
                 <p className="type-body text-charcoal/75">
                   This section supports repeat customers and catering clients checking general service

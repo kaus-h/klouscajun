@@ -80,7 +80,7 @@ export default function MenuPage() {
                 <div className="space-y-4">
                   <p className="type-kicker text-cajun-red">Taste the bayou</p>
                   <h1 className="type-page-title max-w-[12ch] text-charcoal">
-                    The menu should make the food feel worth leaving the house for.
+                    Cajun plates, snowballs, and seasonal favorites.
                   </h1>
                   <p className="type-lead max-w-2xl text-charcoal/80">
                     Authentic Louisiana Cajun and Creole plates, seasonal crawfish, snowballs, and
@@ -163,7 +163,7 @@ export default function MenuPage() {
 
                   <div className="mt-6 border-t border-cream/10 pt-4">
                     <p className="type-kicker text-gold">Current stop</p>
-                    <p className="type-card-title mt-2 text-cream">1328 W University Dr #104</p>
+                    <p className="type-card-title mt-2 text-cream">1314 W University Dr #104</p>
                     <p className="mt-2 flex items-center gap-2 text-sm text-cream/70">
                       <MapPin className="h-4 w-4 text-gold" />
                       Tempe, AZ 85281
@@ -309,11 +309,11 @@ export default function MenuPage() {
               <div className="space-y-4">
                 <p className="type-kicker text-cajun-red">Drinks and extras</p>
                 <h2 className="type-section-title text-charcoal">
-                  Keep the supporting items simple and easy to scan.
+                  Drinks, rotating sides, and pop-up extras.
                 </h2>
                 <p className="type-body text-charcoal/75">
-                  The main plates should carry the page. Drinks and rotating extras should support
-                  them without turning into more boxed UI.
+                  The core plates anchor the menu, while extras can shift by season, event, and
+                  what is running that week.
                 </p>
               </div>
 
@@ -360,7 +360,7 @@ export default function MenuPage() {
               <div className="space-y-4">
                 <p className="type-kicker text-white/75">Ready to order?</p>
                 <h2 className="type-section-title max-w-2xl text-white">
-                  Keep the next move obvious: either find the stop or book the event.
+                  Find the stop, call ahead, or start the catering conversation.
                 </h2>
                 <p className="type-body max-w-xl text-white/85">
                   Call ahead for a large pickup, find the current location, or move straight into a

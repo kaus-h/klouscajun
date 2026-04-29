@@ -21,7 +21,7 @@ const hostingNotes = [
   {
     title: 'For polished client events',
     description:
-      'Straightforward planning, dependable arrival, and food that still feels personal instead of catered-by-template.',
+      'Straightforward planning, dependable arrival, and food that still feels personal.',
   },
 ]
 
@@ -33,7 +33,7 @@ export function CateringSpotlight() {
           <div className="space-y-6">
             <p className="type-kicker text-gold">Catering services</p>
             <h2 className="type-section-title max-w-xl text-cream">
-              Bring the bayou to the event without losing the neighborhood warmth.
+              Bring the bayou to the event with food people remember.
             </h2>
             <p className="type-body max-w-xl text-cream/80">
               K.Lou&apos;s caters the parties people care about: graduation spreads, office lunches,
@@ -56,7 +56,7 @@ export function CateringSpotlight() {
               <Button
                 asChild
                 size="lg"
-                className="rounded-full bg-gold text-charcoal hover:bg-gold-light"
+                className="rounded-md bg-gold text-charcoal hover:bg-gold-light"
               >
                 <Link href="/catering">Request a quote</Link>
               </Button>
@@ -64,7 +64,7 @@ export function CateringSpotlight() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="rounded-full border-cream text-cream hover:bg-cream hover:text-charcoal"
+                className="rounded-md border-cream text-cream hover:bg-cream hover:text-charcoal"
               >
                 <a href="tel:+16025968036" className="flex items-center gap-2">
                   <Phone className="h-5 w-5" />
@@ -75,7 +75,7 @@ export function CateringSpotlight() {
           </div>
 
           <div className="space-y-6">
-            <div className="relative aspect-[5/4] overflow-hidden rounded-3xl bg-charcoal-light">
+            <div className="relative aspect-[5/4] overflow-hidden rounded-lg bg-charcoal-light">
               <Image
                 src="/images/shrimp-boil.jpg"
                 alt="K.Lou's Cajun Shack shrimp boil catering spread"

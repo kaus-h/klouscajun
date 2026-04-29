@@ -89,9 +89,9 @@
 }
 
 @theme inline {
-  --font-sans: 'Source Sans 3', 'Segoe UI', 'Trebuchet MS', sans-serif;
-  --font-serif: 'Bricolage Grotesque', 'Trebuchet MS', 'Segoe UI', sans-serif;
-  --font-display: 'Source Sans 3', 'Segoe UI', 'Trebuchet MS', sans-serif;
+  --font-sans: var(--font-work-sans), 'Segoe UI', sans-serif;
+  --font-serif: var(--font-eczar), Georgia, serif;
+  --font-display: var(--font-work-sans), 'Segoe UI', sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   
   /* Brand Color Tokens */
@@ -162,7 +162,7 @@
   h4,
   [data-slot='card-title'] {
     font-family: var(--font-serif);
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
   }
   h1,
   h2,
@@ -178,51 +178,51 @@
 @layer utilities {
   .type-kicker {
     font-family: var(--font-display);
-    font-size: clamp(0.74rem, 0.25vw + 0.7rem, 0.88rem);
+    font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.16em;
-    line-height: 1.15;
+    letter-spacing: 0;
+    line-height: 1.2;
     text-transform: uppercase;
   }
 
   .type-hero {
     font-family: var(--font-serif);
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    font-weight: 700;
-    letter-spacing: -0.05em;
-    line-height: 0.94;
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.02;
     text-wrap: balance;
   }
 
   .type-page-title {
     font-family: var(--font-serif);
-    font-size: clamp(2.6rem, 4.8vw, 4.7rem);
-    font-weight: 700;
-    letter-spacing: -0.045em;
-    line-height: 0.98;
+    font-size: 2.85rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.04;
     text-wrap: balance;
   }
 
   .type-section-title {
     font-family: var(--font-serif);
-    font-size: clamp(2rem, 3vw, 3.35rem);
+    font-size: 2.15rem;
     font-weight: 700;
-    letter-spacing: -0.038em;
-    line-height: 1.02;
+    letter-spacing: 0;
+    line-height: 1.08;
     text-wrap: balance;
   }
 
   .type-card-title {
     font-family: var(--font-serif);
-    font-size: clamp(1.2rem, 1.2vw + 1rem, 1.8rem);
+    font-size: 1.35rem;
     font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1.08;
+    letter-spacing: 0;
+    line-height: 1.14;
     text-wrap: balance;
   }
 
   .type-lead {
-    font-size: clamp(1.0625rem, 0.35vw + 1rem, 1.28rem);
+    font-size: 1.08rem;
     line-height: 1.72;
     max-width: 58ch;
   }
@@ -235,24 +235,70 @@
 
   .type-meta {
     font-size: 0.95rem;
-    letter-spacing: 0.01em;
+    letter-spacing: 0;
     line-height: 1.55;
   }
 
   .type-nav-brand {
     font-family: var(--font-serif);
-    font-size: clamp(1.9rem, 0.8vw + 1.7rem, 2.65rem);
-    font-weight: 700;
-    letter-spacing: -0.06em;
+    font-size: 2.15rem;
+    font-weight: 800;
+    letter-spacing: 0;
     line-height: 0.9;
   }
 
   .type-nav-subbrand {
     font-family: var(--font-display);
-    font-size: clamp(0.68rem, 0.2vw + 0.64rem, 0.82rem);
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.18em;
+    letter-spacing: 0;
     line-height: 1.1;
     text-transform: uppercase;
+  }
+
+  @media (min-width: 768px) {
+    .type-kicker {
+      font-size: 0.86rem;
+    }
+
+    .type-hero {
+      font-size: 4.35rem;
+      line-height: 0.98;
+    }
+
+    .type-page-title {
+      font-size: 4rem;
+      line-height: 1.02;
+    }
+
+    .type-section-title {
+      font-size: 2.85rem;
+    }
+
+    .type-card-title {
+      font-size: 1.65rem;
+    }
+
+    .type-lead {
+      font-size: 1.18rem;
+    }
+
+    .type-nav-brand {
+      font-size: 2.75rem;
+    }
+
+    .type-nav-subbrand {
+      font-size: 0.82rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .type-hero {
+      font-size: 4.65rem;
+    }
+
+    .type-page-title {
+      font-size: 4.6rem;
+    }
   }
 }

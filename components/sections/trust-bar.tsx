@@ -2,7 +2,7 @@ import { Check } from 'lucide-react'
 
 const trustGroups = [
   {
-    title: 'For lunch, dinner, and quick stops',
+    title: 'Pull up today',
     items: [
       'Authentic Cajun and Creole cooking',
       'Phoenix and Tempe pop-up locations',
@@ -10,7 +10,7 @@ const trustGroups = [
     ],
   },
   {
-    title: 'For family tables and bigger events',
+    title: 'Feed the room',
     items: [
       'Family-run hospitality',
       'Catering for gatherings of all sizes',
@@ -21,18 +21,17 @@ const trustGroups = [
 
 export function TrustBar() {
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section className="bg-cream py-16 md:py-20">
       <div className="container mx-auto px-4">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
           <div className="space-y-4">
             <p className="type-kicker text-cajun-red">Why people keep pulling up</p>
             <h2 className="type-section-title max-w-xl text-charcoal">
-              The food lands first. The hospitality makes people stay loyal.
+              Big flavor gets them there. Real hospitality brings them back.
             </h2>
             <p className="type-body max-w-xl text-charcoal/75">
-              K.Lou&apos;s works because it feels grounded. The menu is recognizable, the service is
-              direct, and both the everyday stop and the bigger catering order feel handled by
-              people who care.
+              Whether you are grabbing a quick plate or planning a larger spread, K.Lou&apos;s keeps
+              the food bold, the portions generous, and the communication straightforward.
             </p>
           </div>
 

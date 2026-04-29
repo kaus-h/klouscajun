@@ -31,7 +31,7 @@ const faqCategories = [
       },
       {
         question: 'Where are you located?',
-        answer: 'We operate primarily in the Phoenix and Tempe, Arizona area. Our main location is at 1328 W University Dr #104 in Tempe, and we also do pop-ups at various locations including Yilo Superstore on Thunderbird Rd. Check our Find Us page for current locations and hours.',
+        answer: 'We operate primarily in the Phoenix and Tempe, Arizona area. Our active stop can shift with pop-ups and catering, so check the Find Us page or call ahead for the current location. Known stops include University Dr in Tempe and Yilo Superstore on Thunderbird Rd.',
       },
       {
         question: 'What are your hours of operation?',

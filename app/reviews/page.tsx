@@ -134,7 +134,7 @@ export default function ReviewsPage() {
                 <div className="space-y-4">
                   <p className="type-kicker text-cajun-red">Testimonials</p>
                   <h1 className="type-page-title max-w-[12ch] text-charcoal">
-                    Let the proof feel human instead of boxed into one repeated grid.
+                    Real words from people who came hungry and left happy.
                   </h1>
                   <p className="type-lead max-w-2xl text-charcoal/80">
                     The strongest reviews say the same thing in different ways: authentic food,

@@ -86,7 +86,7 @@ export default function CateringPage() {
                 <div className="space-y-4">
                   <p className="type-kicker text-cajun-red">Catering services</p>
                   <h1 className="type-page-title max-w-[12ch] text-charcoal">
-                    Feed the event without losing the family-run feel.
+                    Cajun catering for parties, office lunches, and crawfish boils.
                   </h1>
                   <p className="type-lead max-w-2xl text-charcoal/80">
                     K.Lou&apos;s caters celebrations, office lunches, community events, and crawfish
@@ -173,7 +173,7 @@ export default function CateringPage() {
               <div className="space-y-4">
                 <p className="type-kicker text-cajun-red">Occasions</p>
                 <h2 className="type-section-title max-w-xl text-charcoal">
-                  Group the reasons people hire you instead of repeating six identical cards.
+                  From family celebrations to office lunches, K.Lou&apos;s brings the flavor.
                 </h2>
                 <p className="type-body max-w-xl text-charcoal/75">
                   These are the event types that come up most often, from graduation parties and
@@ -206,7 +206,7 @@ export default function CateringPage() {
               <div className="space-y-4">
                 <p className="type-kicker text-gold">Service options</p>
                 <h2 className="type-section-title max-w-xl text-cream">
-                  The service model should read like a plan, not a row of icons.
+                  Choose the setup that fits your event.
                 </h2>
                 <p className="type-body max-w-xl text-cream/75">
                   Choose the level that fits the event and budget, then use the inquiry form to tell

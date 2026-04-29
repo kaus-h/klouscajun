@@ -15,7 +15,7 @@ export function AboutPreview() {
       <div className="container mx-auto px-4">
         <div className="grid gap-12 lg:grid-cols-[minmax(320px,0.9fr)_minmax(0,1.1fr)] lg:items-center">
           <div className="relative">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-charcoal-light">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-charcoal-light">
               <Image
                 src="/images/beignets.jpg"
                 alt="Fresh beignets from K.Lou's Cajun Shack"
@@ -58,7 +58,7 @@ export function AboutPreview() {
             <Button
               asChild
               variant="outline"
-              className="rounded-full border-gold text-gold hover:bg-gold hover:text-charcoal"
+              className="rounded-md border-gold text-gold hover:bg-gold hover:text-charcoal"
             >
               <Link href="/about" className="flex items-center gap-2">
                 Learn the full story

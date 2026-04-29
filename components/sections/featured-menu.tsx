@@ -6,21 +6,43 @@ import { Button } from '@/components/ui/button'
 const featuredItems = [
   {
     id: 1,
-    name: 'Southern Fried Catfish Plate',
-    image: '/images/catfish-plate.jpg',
-    description: '5pc catfish with homemade Cajun seasoned fries and 2 hush puppies',
+    name: 'Boiled Crawfish Plate',
+    price: 20,
+    image: '/images/shrimp-boil.jpg',
+    description: 'Comes with potatoes and sausage.',
+    note: 'Seasonal favorite',
   },
   {
     id: 2,
-    name: 'Jambalaya Combo',
-    image: '/images/jambalaya-combo.jpg',
-    description: 'Jambalaya with corn, sausage, and fried shrimp',
+    name: 'Cajun Fried Gator Plate',
+    price: 18,
+    image: '/images/fried-gator.jpg',
+    description: 'Comes with potato salad and sweet peas or green beans.',
+    note: 'Ask what is running today',
   },
   {
     id: 3,
-    name: 'Shrimp Po-Boy',
-    image: '/images/crawfish-poboy.jpg',
-    description: 'Crispy fried shrimp on fresh French bread with all the fixings',
+    name: 'Southern Fried Catfish & Jambalaya Plate',
+    price: 15,
+    image: '/images/catfish-plate.jpg',
+    description: 'Comes with potato salad and sweet peas or green beans.',
+    note: 'Pop-up staple',
+  },
+  {
+    id: 4,
+    name: 'Snowballs',
+    price: 6,
+    image: '/images/snowballs.jpg',
+    description: 'One flavor included. Additional flavors +$2.',
+    note: 'Arizona cooldown',
+  },
+  {
+    id: 5,
+    name: 'Bottled Smart Water',
+    price: 3,
+    image: '/images/jambalaya-combo.jpg',
+    description: '20 fl oz. 2 for $6.',
+    note: 'Simple and cold',
   },
 ]
 
@@ -32,20 +54,20 @@ export function FeaturedMenu() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="space-y-4">
-            <p className="type-kicker text-cajun-red">Signature dishes</p>
+            <p className="type-kicker text-cajun-red">Menu favorites</p>
             <h2 className="type-section-title max-w-2xl text-charcoal">
-              The plates people talk about after the pop-up wraps up.
+              The plates people ask about before they even get in line.
             </h2>
             <p className="type-body max-w-xl text-charcoal/75">
-              No filler grid of menu items here. These are the plates regulars mention by name
-              when they call ahead or bring K.Lou&apos;s into an event.
+              Crawfish, gator, catfish, jambalaya, snowballs, and the essentials that make a
+              pop-up stop feel like a full spread.
             </p>
           </div>
 
           <Button
             asChild
             variant="outline"
-            className="self-start rounded-full border-charcoal text-charcoal hover:bg-charcoal hover:text-cream"
+            className="self-start rounded-md border-charcoal text-charcoal hover:bg-charcoal hover:text-cream"
           >
             <Link href="/menu" className="flex items-center gap-2">
               View full menu
@@ -57,16 +79,17 @@ export function FeaturedMenu() {
         <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(280px,0.95fr)] lg:items-start">
           <article className="grid gap-6 border-t border-charcoal/15 pt-6 lg:grid-cols-[minmax(0,1fr)_minmax(260px,0.95fr)]">
             <div className="space-y-4">
-              <p className="type-kicker text-cajun-red/80">Most requested plate</p>
+              <p className="type-kicker text-cajun-red/80">{signatureDish.note}</p>
               <h3 className="type-section-title text-charcoal">{signatureDish.name}</h3>
               <p className="type-body max-w-xl text-charcoal/75">{signatureDish.description}</p>
+              <p className="text-4xl font-semibold text-cajun-red">${signatureDish.price}</p>
               <p className="type-meta text-charcoal/65">
-                Crispy, generous, and instantly recognizable. It carries the same energy whether
-                you&apos;re grabbing dinner or feeding a party.
+                Crawfish availability can shift with the season, so call ahead if this is the plate
+                you&apos;re making the trip for.
               </p>
             </div>
 
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-charcoal shadow-xl shadow-charcoal/10">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-charcoal shadow-xl shadow-charcoal/10">
               <Image
                 src={signatureDish.image}
                 alt={signatureDish.name}
@@ -84,7 +107,7 @@ export function FeaturedMenu() {
                   key={item.id}
                   className="grid gap-4 border-b border-charcoal/10 pb-6 last:border-b-0 last:pb-0 sm:grid-cols-[160px_1fr]"
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-charcoal">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-charcoal">
                     <Image
                       src={item.image}
                       alt={item.name}
@@ -94,7 +117,13 @@ export function FeaturedMenu() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="type-card-title text-charcoal">{item.name}</h3>
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="type-kicker text-cajun-red/75">{item.note}</p>
+                        <h3 className="type-card-title mt-1 text-charcoal">{item.name}</h3>
+                      </div>
+                      <span className="text-xl font-semibold text-cajun-red">${item.price}</span>
+                    </div>
                     <p className="type-meta text-charcoal/75">{item.description}</p>
                   </div>
                 </article>
@@ -102,6 +131,10 @@ export function FeaturedMenu() {
             </div>
           </div>
         </div>
+
+        <p className="type-meta mt-8 max-w-2xl border-t border-charcoal/15 pt-5 text-charcoal/65">
+          Menu availability and locations may vary by pop-up, season, and catering schedule.
+        </p>
       </div>
     </section>
   )

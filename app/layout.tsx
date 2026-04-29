@@ -1,17 +1,18 @@
 import type { Metadata, Viewport } from 'next'
-import { Bricolage_Grotesque, Source_Sans_3 } from 'next/font/google'
+import { Eczar, Work_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const sourceSans = Source_Sans_3({
+const workSans = Work_Sans({
   subsets: ['latin'],
-  variable: '--font-source-sans',
+  variable: '--font-work-sans',
   display: 'swap',
 })
 
-const bricolage = Bricolage_Grotesque({
+const eczar = Eczar({
   subsets: ['latin'],
-  variable: '--font-bricolage',
+  variable: '--font-eczar',
+  weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
 })
 
@@ -93,7 +94,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${sourceSans.variable} ${bricolage.variable} bg-background`}>
+    <html lang="en" className={`${workSans.variable} ${eczar.variable} bg-background`}>
       <head>
         <script
           type="application/ld+json"
@@ -110,29 +111,28 @@ export default function RootLayout({
               priceRange: '$$',
               address: {
                 '@type': 'PostalAddress',
-                streetAddress: '1328 W University Dr #104',
                 addressLocality: 'Tempe',
                 addressRegion: 'AZ',
-                postalCode: '85281',
                 addressCountry: 'US',
               },
-              geo: {
-                '@type': 'GeoCoordinates',
-                latitude: 33.42237276097644, 
-                longitude: -111.95968892883565,
-              },
+              areaServed: ['Phoenix, AZ', 'Tempe, AZ'],
               openingHoursSpecification: [
                 {
                   '@type': 'OpeningHoursSpecification',
-                  dayOfWeek: ['Every Other Saturday'],
+                  dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
                   opens: '10:30',
-                  closes: '20:00',
+                  closes: '17:30',
                 },
-                
+                {
+                  '@type': 'OpeningHoursSpecification',
+                  dayOfWeek: ['Friday', 'Saturday'],
+                  opens: '11:00',
+                  closes: '17:30',
+                },
               ],
               sameAs: [],
               hasMenu: 'https://klouscajun.com/menu',
-              acceptsReservations: 'True',
+              acceptsReservations: true,
             }),
           }}
         />

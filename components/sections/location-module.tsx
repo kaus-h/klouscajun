@@ -3,11 +3,11 @@ import { Calendar, Clock, MapPin, Navigation, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const currentLocation = {
-  name: '1328 W University Dr #104',
-  address: '1328 W University Dr #104, Tempe, AZ 85281',
-  status: 'Open Today',
-  hours: '10:30 AM - 5:30 PM',
-  mapLink: 'https://www.google.com/maps/place/1328+W+University+Dr,+Tempe,+AZ+85281',
+  name: "Today's Pop-Up",
+  address: '1314 W University Dr #104, Tempe, AZ',
+  status: 'Call Ahead to Confirm',
+  hours: 'Updated weekly',
+  mapLink: 'https://www.google.com/maps/search/?api=1&query=1314+W+University+Dr+%23104+Tempe+AZ',
 }
 
 const upcomingEvents = [
@@ -20,10 +20,10 @@ const upcomingEvents = [
   },
   {
     id: 2,
-    name: 'University Dr Location',
-    address: '1328 W University Dr #104, Tempe',
-    date: 'Every Other Saturday',
-    time: '10:30 AM - 10:00 PM',
+    name: 'University Dr Stop',
+    address: '1314 W University Dr #104, Tempe',
+    date: 'Schedule varies',
+    time: 'Call ahead for the latest hours',
   },
 ]
 
@@ -42,11 +42,11 @@ export function LocationModule() {
             <div className="space-y-4">
               <p className="type-kicker text-cajun-red">Find us</p>
               <h2 className="type-section-title max-w-2xl text-charcoal">
-                Make the food stop easy to understand before people start scrolling.
+                Check the active stop first, then plan your next visit.
               </h2>
               <p className="type-body max-w-xl text-charcoal/75">
-                The current location needs to be immediate. The pop-up schedule should support it,
-                not compete with it.
+                Pop-up locations can shift with catering runs and seasonal events, so the fastest
+                move is to check the featured stop and call ahead before you drive.
               </p>
             </div>
 
@@ -57,7 +57,7 @@ export function LocationModule() {
                   <h3 className="type-section-title text-charcoal">{currentLocation.name}</h3>
                   <p className="type-body text-charcoal/75">{currentLocation.address}</p>
                 </div>
-                <p className="rounded-full bg-cajun-red px-4 py-2 text-sm font-semibold text-white">
+                <p className="rounded-md bg-cajun-red px-4 py-2 text-sm font-semibold text-white">
                   {currentLocation.hours}
                 </p>
               </div>
@@ -65,7 +65,7 @@ export function LocationModule() {
               <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                 <Button
                   asChild
-                  className="rounded-full bg-charcoal text-cream hover:bg-charcoal-light"
+                  className="rounded-md bg-charcoal text-cream hover:bg-charcoal-light"
                 >
                   <a
                     href={currentLocation.mapLink}
@@ -80,7 +80,7 @@ export function LocationModule() {
                 <Button
                   asChild
                   variant="outline"
-                  className="rounded-full border-charcoal text-charcoal hover:bg-charcoal hover:text-cream"
+                  className="rounded-md border-charcoal text-charcoal hover:bg-charcoal hover:text-cream"
                 >
                   <a href="tel:+16025968036" className="flex items-center gap-2">
                     <Phone className="h-4 w-4" />
@@ -102,7 +102,7 @@ export function LocationModule() {
             </div>
           </div>
 
-          <aside className="rounded-3xl bg-charcoal p-8 text-cream">
+          <aside className="rounded-lg bg-charcoal p-8 text-cream">
             <div className="flex items-center gap-3">
               <Calendar className="h-5 w-5 text-gold" />
               <p className="type-card-title text-cream">Weekly schedule</p>
@@ -128,9 +128,9 @@ export function LocationModule() {
             </div>
 
             <div className="mt-8 border-t border-cream/10 pt-6">
-              <p className="type-meta text-cream/70">
-                Hours can shift with pop-up schedules and larger events. If you&apos;re making the
-                trip, call first and we&apos;ll point you the right way.
+                  <p className="type-meta text-cream/70">
+                Pop-up hours can shift with catering and larger events. If you&apos;re making the
+                trip, call first and we&apos;ll point you toward the active stop.
               </p>
               <Button
                 asChild
